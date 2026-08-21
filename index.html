@@ -4,34 +4,261 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="A guided lab for building an IDS 706 Python GitHub template and completing Assignment 1.">
-    <title>IDS 706 | Assignment 1 | Python GitHub Template Lab</title>
+    <meta name="description" content="A guided lab for building a Python GitHub template.">
+    <title>Software Engineering Basics | Python GitHub Template Lab</title>
     <link rel="stylesheet" href="style.css">
+
+    <!--
+        Small overrides for the lesson layout and code blocks.
+        These prevent inline code from getting white backgrounds
+        and make terminal/code cards easier to read.
+    -->
+    <style>
+        /* =========================================================
+           INSTRUCTION CHECKBOXES
+           ========================================================= */
+
+        .instruction-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 14px !important;
+        }
+
+        .instruction-list {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 14px !important;
+        }
+
+        .instruction-item {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .instruction-item input[type="checkbox"] {
+            flex: 0 0 auto !important;
+            width: 18px !important;
+            height: 18px !important;
+            margin: 4px 0 0 0 !important;
+            cursor: pointer !important;
+        }
+
+        .instruction-item .list-number {
+            flex: 0 0 auto !important;
+            margin: 0 !important;
+            min-width: 30px !important;
+            line-height: 1.5 !important;
+        }
+
+        .instruction-item>p,
+        .instruction-item>div {
+            margin: 0 !important;
+            flex: 1 !important;
+            min-width: 0 !important;
+        }
+
+        .instruction-item>div>p {
+            margin: 0 0 10px 0 !important;
+        }
+
+        /* Keep nested code cards from being treated like checkbox text */
+        .instruction-item .code-card {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            margin-top: 8px !important;
+        }
+
+
+        /* =========================================================
+           CODE / TERMINAL CARDS
+           ========================================================= */
+
+        .code-card {
+            overflow: hidden !important;
+            border-radius: 8px !important;
+        }
+
+        .code-card pre {
+            margin: 0 !important;
+            padding: 20px !important;
+            background: #111d33 !important;
+            color: #e6edf7 !important;
+            overflow-x: auto !important;
+            white-space: pre !important;
+            line-height: 1.65 !important;
+        }
+
+        .code-card pre code {
+            display: block !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: transparent !important;
+            color: #e6edf7 !important;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono",
+                Menlo, monospace !important;
+            font-size: 0.95rem !important;
+            line-height: 1.65 !important;
+            white-space: pre !important;
+        }
+
+        /* Remove accidental white backgrounds from syntax spans */
+        .code-card pre code span,
+        .code-card pre code .syntax-key,
+        .code-card pre code .syntax-keyword {
+            background: transparent !important;
+            color: inherit !important;
+        }
+
+        /* Terminal-style header */
+        .code-card-top {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 12px !important;
+            background: #182640 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+            padding: 10px 14px !important;
+        }
+
+        .code-card-top span {
+            color: #aebbd0 !important;
+            font-family: "SFMono-Regular", Consolas, monospace !important;
+            font-size: 0.85rem !important;
+        }
+
+        .copy-button {
+            flex: 0 0 auto !important;
+        }
+
+        /* Inline code should NOT have a white box */
+        .lesson code,
+        .callout code,
+        .small-note code,
+        .lead code,
+        .instruction-item code {
+            background: rgba(30, 55, 90, 0.10) !important;
+            color: #244f8f !important;
+            padding: 2px 5px !important;
+            border-radius: 4px !important;
+        }
+
+        /* But code INSIDE a code card should have NO background */
+        .code-card code,
+        .code-card pre code {
+            background: transparent !important;
+            color: #e6edf7 !important;
+        }
+
+
+        /* =========================================================
+           MAKEFILE / YAML
+           ========================================================= */
+
+        .yaml-card pre,
+        .yaml-card pre code {
+            background: #111d33 !important;
+        }
+
+
+        /* =========================================================
+           CHECKED CHECKBOXES
+           ========================================================= */
+
+        .instruction-item:has(input[type="checkbox"]:checked) {
+            opacity: 0.65;
+        }
+
+        .instruction-item:has(input[type="checkbox"]:checked) p {
+            text-decoration: line-through;
+            text-decoration-thickness: 1px;
+        }
+
+        .instruction-item:has(input[type="checkbox"]:checked) .list-number {
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           TERMINAL COMMAND ROW
+           ========================================================= */
+
+        .command-row {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            flex-wrap: wrap !important;
+        }
+
+        .command-row code {
+            background: #111d33 !important;
+            color: #e6edf7 !important;
+            padding: 8px 12px !important;
+            border-radius: 6px !important;
+            font-family: "SFMono-Regular", Consolas, monospace !important;
+        }
+
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 700px) {
+            .instruction-item {
+                gap: 8px !important;
+            }
+
+            .instruction-item .list-number {
+                min-width: 28px !important;
+            }
+
+            .code-card pre {
+                padding: 16px !important;
+            }
+
+            .code-card pre code {
+                font-size: 0.85rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
     <header class="site-header">
         <div class="header-inner">
-            <a class="brand" href="#top" aria-label="IDS 706 Assignment 1 home">
+
+            <a class="brand" href="#top" aria-label="IDS 706 Week 1: Software Engineering Basics home">
                 <span class="brand-mark">SE</span>
-                <span>IDS 706 Assignment 1</span>
+                <span>IDS 706 Week 1: Software Engineering Basics</span>
             </a>
 
             <button class="reset-button" id="reset-progress" type="button">
                 Reset progress
             </button>
+
         </div>
     </header>
 
+
     <main id="top" class="app-shell">
 
-        <!-- HERO -->
+        <!-- =====================================================
+             HERO
+             ===================================================== -->
+
         <section class="hero" aria-labelledby="page-title">
+
             <div class="hero-copy">
 
                 <p class="eyebrow">
-                    IDS 706 · Assignment 1
+                    IDS 706 Week 1: Software Engineering Basics
                 </p>
 
                 <h1 id="page-title">
@@ -40,22 +267,20 @@
                 </h1>
 
                 <p class="hero-summary">
-                    Follow these steps to set up your Assignment 1 Python
-                    repository with a virtual environment, dependencies,
-                    testing, a Makefile, and GitHub Actions.
-                </p>
-
-                <p class="hero-summary">
-                    The final step is your own coding exercise: you will write
-                    a Python function and a test, then use the tools from this
-                    lab to verify your work.
+                    Follow these steps to create a Python project with a
+                    virtual environment, requirements, tests, a Makefile,
+                    and GitHub Actions.
                 </p>
 
             </div>
+
         </section>
 
 
-        <!-- PROGRESS -->
+        <!-- =====================================================
+             PROGRESS
+             ===================================================== -->
+
         <section class="progress-panel" aria-label="Lab progress">
 
             <div class="progress-meta">
@@ -74,7 +299,10 @@
 
         <div class="lab-layout">
 
-            <!-- SIDE NAVIGATION -->
+            <!-- =================================================
+                 SIDE NAVIGATION
+                 ================================================= -->
+
             <aside class="step-nav" aria-label="Lab steps">
 
                 <div class="nav-heading">
@@ -134,7 +362,7 @@
                     <li>
                         <button type="button" data-go-to="7">
                             <span>07</span>
-                            Homework: function + test
+                            Write a test
                             <b>✓</b>
                         </button>
                     </li>
@@ -156,14 +384,21 @@
                     </li>
 
                 </ol>
+
             </aside>
 
 
-            <!-- LESSONS -->
+            <!-- =================================================
+                 LESSON AREA
+                 ================================================= -->
+
             <section class="lesson-area" aria-live="polite">
 
 
-                <!-- STEP 1 -->
+                <!-- =================================================
+                     STEP 1 — CREATE REPOSITORY
+                     ================================================= -->
+
                 <article class="lesson is-active" data-step="1">
 
                     <div class="lesson-heading">
@@ -172,7 +407,7 @@
 
                         <div>
                             <p class="eyebrow">Start here</p>
-                            <h2>Create your Assignment 1 GitHub repository</h2>
+                            <h2>Create your GitHub repository</h2>
                         </div>
 
                     </div>
@@ -183,75 +418,97 @@
                         gives GitHub Actions a place to run.
                     </p>
 
-                    <div class="callout blue">
-
-                        <span>Assignment repository</span>
-
-                        <p>
-                            Name your repository
-                            <strong>IDS706-Assignment-1</strong>.
-                            This repository will contain the work you build
-                            throughout this lab.
-                        </p>
-
-                    </div>
-
                     <a class="primary-link" href="https://github.com/new" target="_blank" rel="noreferrer">
-                        Open GitHub's new repository page
-                        <span>↗</span>
+                        Open GitHub's new repository page <span>↗</span>
                     </a>
 
 
-                    <div class="instruction-list">
+                    <div class="instruction-grid">
 
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">01</span>
+
                             <p>
-                                Visit <strong>github.com/new</strong>.
+                                Visit
+                                <strong>github.com/new</strong>.
                             </p>
+
                         </label>
 
+
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">02</span>
+
                             <p>
-                                Name the repository
+                                Name the repository something like
                                 <strong>IDS706-Assignment-1</strong>.
+                                This name is optional — you can choose
+                                your own repository name.
                             </p>
+
                         </label>
 
+
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">03</span>
+
                             <p>
-                                Turn <strong>Add a README file</strong> on.
+                                Turn
+                                <strong>Add a README file</strong>
+                                on.
                             </p>
+
                         </label>
 
+
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">04</span>
+
                             <p>
-                                Select <strong>Python</strong> for the
-                                .gitignore template.
+                                Select
+                                <strong>Python</strong>
+                                for the <code>.gitignore</code> template.
                             </p>
+
                         </label>
 
+
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">05</span>
+
                             <p>
-                                Click <strong>Create repository</strong>.
+                                Click
+                                <strong>Create repository</strong>.
                             </p>
+
                         </label>
 
+
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">06</span>
+
                             <p>
                                 Copy the repository URL.
                             </p>
+
                         </label>
 
                     </div>
@@ -262,14 +519,15 @@
                         <span>✓</span>
 
                         <div>
+
                             <strong>Checkpoint</strong>
 
                             <p>
-                                Your repository is named
-                                <code>IDS706-Assignment-1</code> and contains
+                                Your new repository contains
                                 <code>README.md</code> and
                                 <code>.gitignore</code>.
                             </p>
+
                         </div>
 
                     </div>
@@ -277,7 +535,10 @@
                 </article>
 
 
-                <!-- STEP 2 -->
+                <!-- =================================================
+                     STEP 2 — CLONE
+                     ================================================= -->
+
                 <article class="lesson" data-step="2">
 
                     <div class="lesson-heading">
@@ -301,16 +562,24 @@
                     <div class="instruction-list">
 
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">01</span>
+
                             <p>
                                 Open VS Code.
                             </p>
+
                         </label>
 
+
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">02</span>
+
                             <p>
                                 Open the Command Palette:
                                 <kbd>⌘</kbd>
@@ -322,40 +591,48 @@
                                 <kbd>P</kbd>
                                 on Windows.
                             </p>
+
                         </label>
 
+
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">03</span>
+
                             <p>
                                 Search for
                                 <strong>Git: Clone</strong>.
                             </p>
+
                         </label>
 
+
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">04</span>
+
                             <p>
                                 Paste the GitHub repository URL.
                             </p>
+
                         </label>
 
+
                         <label class="instruction-item">
+
                             <input type="checkbox">
+
                             <span class="list-number">05</span>
+
                             <p>
                                 Choose a local folder, then open the
                                 cloned repository.
                             </p>
-                        </label>
 
-                        <label class="instruction-item">
-                            <input type="checkbox">
-                            <span class="list-number">06</span>
-                            <p>
-                                Run <code>git status</code> in the terminal.
-                            </p>
                         </label>
 
                     </div>
@@ -364,11 +641,13 @@
                     <div class="code-card">
 
                         <div class="code-card-top">
+
                             <span>Terminal</span>
 
                             <button class="copy-button" type="button" data-copy="git status">
                                 Copy
                             </button>
+
                         </div>
 
                         <pre><code>git status</code></pre>
@@ -381,9 +660,9 @@
                         <span>What to look for</span>
 
                         <p>
-                            A clean working tree means Git sees no uncommitted
-                            changes yet. That is a useful baseline before you
-                            start building.
+                            A clean working tree means Git sees no
+                            uncommitted changes yet. That is a useful
+                            baseline before you start building.
                         </p>
 
                     </div>
@@ -391,7 +670,10 @@
                 </article>
 
 
-                <!-- STEP 3 -->
+                <!-- =================================================
+                     STEP 3 — VIRTUAL ENVIRONMENT
+                     ================================================= -->
+
                 <article class="lesson" data-step="3">
 
                     <div class="lesson-heading">
@@ -406,27 +688,11 @@
                     </div>
 
                     <p class="lead">
-                        <code>.venv</code> creates a private Python environment
-                        for this project. Packages installed here will not
-                        interfere with other projects on your computer.
+                        <code>.venv</code> creates a private Python
+                        environment for this project. Packages installed
+                        here will not interfere with other projects on
+                        your computer.
                     </p>
-
-
-                    <div class="callout yellow">
-
-                        <span>.venv vs. .env</span>
-
-                        <p>
-                            These are different things. <code>.venv</code> is
-                            a Python virtual environment used to isolate
-                            packages for your project. A <code>.env</code>
-                            file is typically used to store environment
-                            variables such as configuration values or API
-                            keys. For this lab, we are using
-                            <strong>.venv</strong>.
-                        </p>
-
-                    </div>
 
 
                     <div class="platform-tabs" role="tablist" aria-label="Operating system">
@@ -462,12 +728,14 @@
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Mac / Linux</span>
 
                                         <button class="copy-button" type="button"
                                             data-copy="python3 -m venv .venv\nsource .venv/bin/activate">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>python3 -m venv .venv
@@ -500,12 +768,14 @@ source .venv/bin/activate</code></pre>
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Windows</span>
 
                                         <button class="copy-button" type="button"
                                             data-copy="python -m venv .venv\n.venv\\Scripts\\activate">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>python -m venv .venv
@@ -537,12 +807,14 @@ source .venv/bin/activate</code></pre>
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Terminal</span>
 
                                         <button class="copy-button" type="button"
                                             data-copy="python -m pip install --upgrade pip">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>python -m pip install --upgrade pip</code></pre>
@@ -566,9 +838,9 @@ source .venv/bin/activate</code></pre>
 
                             <p>
                                 Your terminal prompt should begin with
-                                <code>(.venv)</code>. The <code>.venv</code>
-                                folder is local only and should never be
-                                committed.
+                                <code>(.venv)</code>. The
+                                <code>.venv</code> folder is local only
+                                and should never be committed.
                             </p>
 
                         </div>
@@ -578,7 +850,10 @@ source .venv/bin/activate</code></pre>
                 </article>
 
 
-                <!-- STEP 4 -->
+                <!-- =================================================
+                     STEP 4 — REQUIREMENTS
+                     ================================================= -->
+
                 <article class="lesson" data-step="4">
 
                     <div class="lesson-heading">
@@ -593,9 +868,10 @@ source .venv/bin/activate</code></pre>
                     </div>
 
                     <p class="lead">
-                        A requirements file records the packages the project
-                        needs. Anyone, including GitHub Actions, can install
-                        the same dependencies from this one small list.
+                        A requirements file records the packages the
+                        project needs. Anyone, including GitHub Actions,
+                        can install the same dependencies from this one
+                        small list.
                     </p>
 
 
@@ -604,6 +880,7 @@ source .venv/bin/activate</code></pre>
                         <label class="instruction-item">
 
                             <input type="checkbox">
+
                             <span class="list-number">01</span>
 
                             <p>
@@ -618,6 +895,7 @@ source .venv/bin/activate</code></pre>
                         <label class="instruction-item">
 
                             <input type="checkbox">
+
                             <span class="list-number">02</span>
 
                             <div>
@@ -629,11 +907,13 @@ source .venv/bin/activate</code></pre>
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>requirements.txt</span>
 
                                         <button class="copy-button" type="button" data-copy="pytest">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>pytest</code></pre>
@@ -648,6 +928,7 @@ source .venv/bin/activate</code></pre>
                         <label class="instruction-item">
 
                             <input type="checkbox">
+
                             <span class="list-number">03</span>
 
                             <div>
@@ -659,12 +940,14 @@ source .venv/bin/activate</code></pre>
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Terminal</span>
 
                                         <button class="copy-button" type="button"
                                             data-copy="python -m pip install -r requirements.txt">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>python -m pip install -r requirements.txt</code></pre>
@@ -679,6 +962,7 @@ source .venv/bin/activate</code></pre>
                         <label class="instruction-item">
 
                             <input type="checkbox">
+
                             <span class="list-number">04</span>
 
                             <div>
@@ -690,11 +974,13 @@ source .venv/bin/activate</code></pre>
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Terminal</span>
 
                                         <button class="copy-button" type="button" data-copy="pytest --version">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>pytest --version</code></pre>
@@ -713,9 +999,9 @@ source .venv/bin/activate</code></pre>
                         <span>The connection</span>
 
                         <p>
-                            When GitHub Actions runs later, it will read this
-                            same file and install <code>pytest</code> in its
-                            fresh environment.
+                            When GitHub Actions runs later, it will read
+                            this same file and install
+                            <code>pytest</code> in its fresh environment.
                         </p>
 
                     </div>
@@ -723,7 +1009,10 @@ source .venv/bin/activate</code></pre>
                 </article>
 
 
-                <!-- STEP 5 -->
+                <!-- =================================================
+                     STEP 5 — MAKEFILE
+                     ================================================= -->
+
                 <article class="lesson" data-step="5">
 
                     <div class="lesson-heading">
@@ -739,9 +1028,9 @@ source .venv/bin/activate</code></pre>
 
                     <p class="lead">
                         A Makefile gives the team memorable shortcuts for
-                        common commands. Instead of remembering several long
-                        terminal commands, you can use simple commands such
-                        as <code>make test</code>.
+                        common commands. Instead of remembering several
+                        commands, you can use simple commands such as
+                        <code>make test</code>.
                     </p>
 
 
@@ -755,7 +1044,8 @@ source .venv/bin/activate</code></pre>
 
                             <p>
                                 Create a file named
-                                <strong>Makefile</strong> in the project root.
+                                <strong>Makefile</strong>
+                                in the project root.
                             </p>
 
                         </label>
@@ -770,8 +1060,8 @@ source .venv/bin/activate</code></pre>
                             <div>
 
                                 <p>
-                                    Copy the following Makefile into your
-                                    <strong>Makefile</strong>.
+                                    Copy the following Makefile into
+                                    your new file.
                                 </p>
 
                                 <div class="code-card">
@@ -828,11 +1118,13 @@ clean:
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Terminal</span>
 
                                         <button class="copy-button" type="button" data-copy="make install">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>make install</code></pre>
@@ -859,11 +1151,13 @@ clean:
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Terminal</span>
 
                                         <button class="copy-button" type="button" data-copy="make test">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>make test</code></pre>
@@ -884,23 +1178,8 @@ clean:
                         <p>
                             Makefile commands must begin with a real
                             <strong>TAB</strong> character, not spaces.
-                            Make sure your editor preserves the tabs shown
-                            in the code above.
-                        </p>
-
-                    </div>
-
-
-                    <div class="callout blue">
-
-                        <span>What do these targets mean?</span>
-
-                        <p>
-                            <code>make install</code> installs your dependencies.
-                            <code>make test</code> runs your tests.
-                            <code>make run</code> runs your application.
-                            <code>make clean</code> removes generated cache
-                            files.
+                            If you copy the Makefile above, the indentation
+                            is already included.
                         </p>
 
                     </div>
@@ -908,7 +1187,10 @@ clean:
                 </article>
 
 
-                <!-- STEP 6 -->
+                <!-- =================================================
+                     STEP 6 — GITHUB ACTIONS
+                     ================================================= -->
+
                 <article class="lesson" data-step="6">
 
                     <div class="lesson-heading">
@@ -923,9 +1205,10 @@ clean:
                     </div>
 
                     <p class="lead">
-                        GitHub Actions runs repeatable tasks in the cloud when
-                        code changes. Your workflow will install your
-                        dependencies and run your tests automatically.
+                        GitHub Actions runs repeatable tasks in the cloud
+                        when code changes. You will create a workflow that
+                        automatically installs your dependencies and runs
+                        your tests.
                     </p>
 
 
@@ -976,9 +1259,7 @@ clean:
 
                                     <div class="code-card-top">
 
-                                        <span>
-                                            .github/workflows/test.yml
-                                        </span>
+                                        <span>.github/workflows/test.yml</span>
 
                                         <button class="copy-button" type="button"
                                             data-copy="name: Tests\n\non:\n  push:\n  pull_request:\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Set up Python\n        uses: actions/setup-python@v5\n        with:\n          python-version: &quot;3.12&quot;\n\n      - name: Install dependencies\n        run: pip install -r requirements.txt\n\n      - name: Run tests\n        run: python -m pytest">
@@ -986,7 +1267,6 @@ clean:
                                         </button>
 
                                     </div>
-
 
                                     <pre><code>name: Tests
 
@@ -1051,30 +1331,13 @@ jobs:
 
                     </div>
 
-
-                    <div class="checkpoint">
-
-                        <span>✓</span>
-
-                        <div>
-
-                            <strong>Checkpoint</strong>
-
-                            <p>
-                                Your repository should now contain a
-                                <code>.github/workflows/test.yml</code>
-                                workflow. It is ready to run once you push
-                                your project to GitHub.
-                            </p>
-
-                        </div>
-
-                    </div>
-
                 </article>
 
 
-                <!-- STEP 7 -->
+                <!-- =================================================
+                     STEP 7 — HOMEWORK / EXAMPLE
+                     ================================================= -->
+
                 <article class="lesson" data-step="7">
 
                     <div class="lesson-heading">
@@ -1083,7 +1346,7 @@ jobs:
 
                         <div>
                             <p class="eyebrow">Your homework</p>
-                            <h2>Write your own function and test</h2>
+                            <h2>Create your own function and test</h2>
                         </div>
 
                     </div>
@@ -1091,41 +1354,24 @@ jobs:
 
                     <div class="callout yellow">
 
-                        <span>Homework: Your turn</span>
+                        <span>Homework</span>
 
                         <p>
-                            Everything up to this point has been a guided
-                            setup. For this assignment, you will create your
-                            <strong>own Python function and test</strong>.
-                            Do not submit the example function from this page.
-                            Choose a simple function that you can explain and
-                            write a test that verifies that it works.
+                            For this assignment, you will create your own
+                            small Python function and write a test for it.
+                            The example below is provided to show you the
+                            expected structure — <strong>do not simply
+                                copy the example as your submission.</strong>
                         </p>
 
                     </div>
 
 
                     <p class="lead">
-                        You will create a source file, write your own function,
-                        create a test file, and use pytest to verify your work.
-                        The example below shows the structure you should
-                        follow, but your function should be your own.
+                        Create a source file containing a function and a
+                        separate test file that checks whether your
+                        function works correctly.
                     </p>
-
-
-                    <div class="callout blue">
-
-                        <span>Example — do not copy</span>
-
-                        <p>
-                            The following example uses a simple
-                            <code>add()</code> function. This is only an
-                            example of how a source file and test can work
-                            together. Create a different function for your
-                            assignment.
-                        </p>
-
-                    </div>
 
 
                     <div class="instruction-list">
@@ -1137,7 +1383,8 @@ jobs:
                             <span class="list-number">01</span>
 
                             <p>
-                                Create <code>src/main.py</code>.
+                                Create
+                                <code>src/main.py</code>.
                             </p>
 
                         </label>
@@ -1152,14 +1399,10 @@ jobs:
                             <div>
 
                                 <p>
-                                    Write your <strong>own Python function</strong>
-                                    in <code>src/main.py</code>.
-                                </p>
-
-                                <p class="small-note">
-                                    <strong>Example:</strong> The function
-                                    below adds two numbers. Your function
-                                    should be different.
+                                    <strong>Example only:</strong>
+                                    here is one possible function.
+                                    You should create your own function
+                                    for the homework.
                                 </p>
 
                                 <div class="code-card">
@@ -1170,7 +1413,7 @@ jobs:
 
                                         <button class="copy-button" type="button"
                                             data-copy="def add(a, b):\n    return a + b">
-                                            Copy example
+                                            Copy
                                         </button>
 
                                     </div>
@@ -1192,7 +1435,8 @@ jobs:
                             <span class="list-number">03</span>
 
                             <p>
-                                Create <code>tests/test_main.py</code>.
+                                Create
+                                <code>tests/test_main.py</code>.
                             </p>
 
                         </label>
@@ -1207,29 +1451,19 @@ jobs:
                             <div>
 
                                 <p>
-                                    Write at least
-                                    <strong>one pytest test</strong>
-                                    that checks that your function works.
-                                </p>
-
-                                <p class="small-note">
-                                    <strong>Example:</strong> The test below
-                                    checks that <code>add(2, 3)</code> returns
-                                    <code>5</code>. Write a test for your own
-                                    function instead.
+                                    <strong>Example only:</strong>
+                                    write a test for your function.
                                 </p>
 
                                 <div class="code-card">
 
                                     <div class="code-card-top">
 
-                                        <span>
-                                            Example: tests/test_main.py
-                                        </span>
+                                        <span>Example: tests/test_main.py</span>
 
                                         <button class="copy-button" type="button"
                                             data-copy="from src.main import add\n\ndef test_add():\n    assert add(2, 3) == 5">
-                                            Copy example
+                                            Copy
                                         </button>
 
                                     </div>
@@ -1255,7 +1489,7 @@ def test_add():
                             <div>
 
                                 <p>
-                                    Run your test suite.
+                                    Run your test.
                                 </p>
 
                                 <div class="code-card">
@@ -1286,9 +1520,9 @@ def test_add():
                         <span>Expected result</span>
 
                         <p>
-                            Your test should pass. You have now created the
-                            code that GitHub Actions will automatically test
-                            when you push your project.
+                            Your test should pass. A passing test is a
+                            small but meaningful signal that your project
+                            is behaving as expected.
                         </p>
 
                     </div>
@@ -1296,7 +1530,10 @@ def test_add():
                 </article>
 
 
-                <!-- STEP 8 -->
+                <!-- =================================================
+                     STEP 8 — PUSH
+                     ================================================= -->
+
                 <article class="lesson" data-step="8">
 
                     <div class="lesson-heading">
@@ -1311,9 +1548,9 @@ def test_add():
                     </div>
 
                     <p class="lead">
-                        Push your completed project to GitHub. Actions will
-                        create a fresh environment, check out your files,
-                        install Python and pytest, and run your test suite.
+                        Push the project to GitHub. Actions will create a
+                        fresh environment, check out your files, install
+                        Python and pytest, and run your test suite.
                     </p>
 
 
@@ -1334,11 +1571,13 @@ def test_add():
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Terminal</span>
 
                                         <button class="copy-button" type="button" data-copy="git status">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>git status</code></pre>
@@ -1365,11 +1604,13 @@ def test_add():
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Terminal</span>
 
                                         <button class="copy-button" type="button" data-copy="git add .">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>git add .</code></pre>
@@ -1396,15 +1637,17 @@ def test_add():
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Terminal</span>
 
                                         <button class="copy-button" type="button"
-                                            data-copy='git commit -m "Complete Assignment 1"'>
+                                            data-copy='git commit -m "Add project files"'>
                                             Copy
                                         </button>
+
                                     </div>
 
-                                    <pre><code>git commit -m "Complete Assignment 1"</code></pre>
+                                    <pre><code>git commit -m "Add project files"</code></pre>
 
                                 </div>
 
@@ -1428,11 +1671,13 @@ def test_add():
                                 <div class="code-card">
 
                                     <div class="code-card-top">
+
                                         <span>Terminal</span>
 
                                         <button class="copy-button" type="button" data-copy="git push">
                                             Copy
                                         </button>
+
                                     </div>
 
                                     <pre><code>git push</code></pre>
@@ -1465,8 +1710,8 @@ def test_add():
                             <span class="list-number">06</span>
 
                             <p>
-                                Confirm that the workflow passes all four
-                                steps.
+                                Confirm that the workflow passes all
+                                four steps.
                             </p>
 
                         </label>
@@ -1504,10 +1749,11 @@ def test_add():
                         <span>Try the red path</span>
 
                         <p>
-                            For practice, intentionally make your test fail.
-                            Change the expected result, commit, and push.
-                            Watch GitHub Actions report a failed test. Then
-                            fix the test and push again.
+                            After your workflow works, try intentionally
+                            breaking your test. For example, change the
+                            expected result so that the test fails.
+                            Commit and push to watch GitHub Actions fail.
+                            Then fix your test and push again.
                         </p>
 
                     </div>
@@ -1515,7 +1761,10 @@ def test_add():
                 </article>
 
 
-                <!-- STEP 9 -->
+                <!-- =================================================
+                     STEP 9 — COMPLETION
+                     ================================================= -->
+
                 <article class="lesson completion-lesson" data-step="9">
 
                     <div class="completion-badge">
@@ -1523,7 +1772,7 @@ def test_add():
                     </div>
 
                     <p class="eyebrow">
-                        Assignment 1 complete
+                        Lab complete
                     </p>
 
                     <h2>
@@ -1531,51 +1780,43 @@ def test_add():
                     </h2>
 
                     <p class="lead">
-                        You built a reusable Python project structure and
-                        taught GitHub how to test your code automatically.
+                        You built a reusable project starter and taught
+                        GitHub how to check it automatically.
                     </p>
 
 
                     <div class="completion-checklist">
 
                         <div>
-                            ✓
-                            <span>GitHub repository</span>
+                            ✓ <span>GitHub repository</span>
                         </div>
 
                         <div>
-                            ✓
-                            <span>Python virtual environment</span>
+                            ✓ <span>Python virtual environment</span>
                         </div>
 
                         <div>
-                            ✓
-                            <span>requirements.txt</span>
+                            ✓ <span>requirements.txt</span>
                         </div>
 
                         <div>
-                            ✓
-                            <span>Your own source code</span>
+                            ✓ <span>Source code</span>
                         </div>
 
                         <div>
-                            ✓
-                            <span>Your own test</span>
+                            ✓ <span>Tests</span>
                         </div>
 
                         <div>
-                            ✓
-                            <span>Makefile</span>
+                            ✓ <span>Makefile</span>
                         </div>
 
                         <div>
-                            ✓
-                            <span>GitHub Actions</span>
+                            ✓ <span>GitHub Actions</span>
                         </div>
 
                         <div>
-                            ✓
-                            <span>README</span>
+                            ✓ <span>README</span>
                         </div>
 
                     </div>
@@ -1604,21 +1845,6 @@ def test_add():
                     </div>
 
 
-                    <div class="callout yellow">
-
-                        <span>Before you submit</span>
-
-                        <p>
-                            Make sure your repository is named
-                            <strong>IDS706-Assignment-1</strong>, your own
-                            function and test are committed, GitHub Actions
-                            passes, and <code>.venv</code> is not included
-                            in the repository.
-                        </p>
-
-                    </div>
-
-
                     <button class="completion-action" type="button" id="restart-lab">
                         Review the lab again ↺
                     </button>
@@ -1626,7 +1852,10 @@ def test_add():
                 </article>
 
 
-                <!-- CONTROLS -->
+                <!-- =================================================
+                     CONTROLS
+                     ================================================= -->
+
                 <div class="lesson-controls">
 
                     <button class="secondary-button" type="button" id="back-button">
@@ -1641,10 +1870,15 @@ def test_add():
                 </div>
 
             </section>
+
         </div>
 
     </main>
 
+
+    <!-- =========================================================
+         TOAST
+         ========================================================= -->
 
     <div class="toast" id="toast" role="status" aria-live="polite">
         Copied to clipboard
