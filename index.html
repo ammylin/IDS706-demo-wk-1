@@ -12,358 +12,1085 @@
 <body>
     <header class="site-header">
         <div class="header-inner">
-            <a class="brand" href="#top" aria-label="Software Engineering Basics home">
+            <a class="brand" href="#top" aria-label="IDS 706 Week 1: Software Engineering Basics home">
                 <span class="brand-mark">SE</span>
-                <span>Software Engineering Basics</span>
+                <span>IDS 706 Week 1: Software Engineering Basics</span>
             </a>
-            <button class="reset-button" id="reset-progress" type="button">Reset progress</button>
+
+            <button class="reset-button" id="reset-progress" type="button">
+                Reset progress
+            </button>
         </div>
     </header>
 
     <main id="top" class="app-shell">
+
+        <!-- HERO -->
         <section class="hero" aria-labelledby="page-title">
             <div class="hero-copy">
-                <p class="eyebrow">Software Engineering Basics</p>
-                <h1 id="page-title">Python GitHub<br><span>Template Lab</span></h1>
-                <p class="hero-summary">Follow these steps to create a Python project with a virtual environment,
-                    tests, a Makefile, and GitHub Actions.</p>
-            </div>
-            <div class="hero-note">
-                <span class="note-kicker">Course activity</span>
-                <strong>Work through each step in order.</strong>
-                <span>About 30–45 minutes</span>
+                <p class="eyebrow">IDS 706 Week 1: Software Engineering Basics</p>
+
+                <h1 id="page-title">
+                    Python GitHub<br>
+                    <span>Template Lab</span>
+                </h1>
+
+                <p class="hero-summary">
+                    Follow these steps to create a Python project with a virtual
+                    environment, tests, a Makefile, and GitHub Actions.
+                </p>
             </div>
         </section>
 
+        <!-- PROGRESS -->
         <section class="progress-panel" aria-label="Lab progress">
             <div class="progress-meta">
                 <span id="step-label">Step 1 of 9</span>
                 <span id="progress-percent">0% complete</span>
             </div>
+
             <div class="progress-track">
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
+
             <div class="step-dots" id="step-dots" aria-hidden="true"></div>
         </section>
 
         <div class="lab-layout">
+
+            <!-- SIDE NAVIGATION -->
             <aside class="step-nav" aria-label="Lab steps">
                 <div class="nav-heading">Steps</div>
+
                 <ol id="step-nav-list">
-                    <li><button type="button" data-go-to="1"><span>01</span> Create repository <b>✓</b></button></li>
-                    <li><button type="button" data-go-to="2"><span>02</span> Clone to VS Code <b>✓</b></button></li>
-                    <li><button type="button" data-go-to="3"><span>03</span> Virtual environment <b>✓</b></button></li>
-                    <li><button type="button" data-go-to="4"><span>04</span> requirements.txt <b>✓</b></button></li>
-                    <li><button type="button" data-go-to="5"><span>05</span> Makefile <b>✓</b></button></li>
-                    <li><button type="button" data-go-to="6"><span>06</span> GitHub Actions <b>✓</b></button></li>
-                    <li><button type="button" data-go-to="7"><span>07</span> Write a test <b>✓</b></button></li>
-                    <li><button type="button" data-go-to="8"><span>08</span> Push and test <b>✓</b></button></li>
-                    <li><button type="button" data-go-to="9"><span>09</span> Completion <b>✓</b></button></li>
+                    <li>
+                        <button type="button" data-go-to="1">
+                            <span>01</span>
+                            Create repository
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="2">
+                            <span>02</span>
+                            Clone to VS Code
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="3">
+                            <span>03</span>
+                            Virtual environment
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="4">
+                            <span>04</span>
+                            requirements.txt
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="5">
+                            <span>05</span>
+                            Makefile
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="6">
+                            <span>06</span>
+                            GitHub Actions
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="7">
+                            <span>07</span>
+                            Write a test
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="8">
+                            <span>08</span>
+                            Push and test
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="9">
+                            <span>09</span>
+                            Completion
+                            <b>✓</b>
+                        </button>
+                    </li>
                 </ol>
             </aside>
 
+            <!-- LESSONS -->
             <section class="lesson-area" aria-live="polite">
+
+                <!-- STEP 1 -->
                 <article class="lesson is-active" data-step="1">
-                    <div class="lesson-heading"><span class="step-number">01</span>
+
+                    <div class="lesson-heading">
+                        <span class="step-number">01</span>
+
                         <div>
                             <p class="eyebrow">Start here</p>
                             <h2>Create your GitHub repository</h2>
                         </div>
                     </div>
-                    <p class="lead">GitHub is the central home for your project. It stores your code, tracks changes,
-                        supports collaboration, and gives GitHub Actions a place to run.</p>
-                    <a class="primary-link" href="https://github.com/new" target="_blank" rel="noreferrer">Open GitHub's
-                        new repository page <span>↗</span></a>
+
+                    <p class="lead">
+                        GitHub is the central home for your project. It stores your
+                        code, tracks changes, supports collaboration, and gives
+                        GitHub Actions a place to run.
+                    </p>
+
+                    <a class="primary-link" href="https://github.com/new" target="_blank" rel="noreferrer">
+                        Open GitHub's new repository page <span>↗</span>
+                    </a>
+
                     <div class="instruction-grid">
-                        <div><span class="list-number">01</span>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">01</span>
                             <p>Visit <strong>github.com/new</strong></p>
-                        </div>
-                        <div><span class="list-number">02</span>
-                            <p>Name it something like <strong>python-software-template</strong></p>
-                        </div>
-                        <div><span class="list-number">03</span>
-                            <p>Turn <strong>Add a README file</strong> on</p>
-                        </div>
-                        <div><span class="list-number">04</span>
-                            <p>Select <strong>Python</strong> for the .gitignore template</p>
-                        </div>
-                        <div><span class="list-number">05</span>
-                            <p>Click <strong>Create repository</strong></p>
-                        </div>
-                        <div><span class="list-number">06</span>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">02</span>
+                            <p>
+                                Name it something like
+                                <strong>python-software-template</strong>
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">03</span>
+                            <p>
+                                Turn <strong>Add a README file</strong> on
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">04</span>
+                            <p>
+                                Select <strong>Python</strong> for the
+                                .gitignore template
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">05</span>
+                            <p>
+                                Click <strong>Create repository</strong>
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">06</span>
                             <p>Copy the repository URL</p>
+                        </label>
+
+                    </div>
+
+                    <div class="checkpoint">
+                        <span>✓</span>
+
+                        <div>
+                            <strong>Checkpoint</strong>
+                            <p>
+                                Your new repository contains
+                                <code>README.md</code> and
+                                <code>.gitignore</code>.
+                            </p>
                         </div>
                     </div>
-                    <div class="checkpoint"><span>✓</span>
-                        <div><strong>Checkpoint</strong>
-                            <p>Your new repository contains <code>README.md</code> and <code>.gitignore</code>.</p>
-                        </div>
-                    </div>
+
                 </article>
 
+
+                <!-- STEP 2 -->
                 <article class="lesson" data-step="2">
-                    <div class="lesson-heading"><span class="step-number">02</span>
+
+                    <div class="lesson-heading">
+                        <span class="step-number">02</span>
+
                         <div>
                             <p class="eyebrow">Bring it local</p>
                             <h2>Clone the repository to VS Code</h2>
                         </div>
                     </div>
-                    <p class="lead">Cloning creates a local working copy. You will edit files on your computer, then use
-                        Git to send those changes back to GitHub.</p>
+
+                    <p class="lead">
+                        Cloning creates a local working copy. You will edit files
+                        on your computer, then use Git to send those changes back
+                        to GitHub.
+                    </p>
+
                     <div class="instruction-list">
-                        <p><span>01</span>Open VS Code.</p>
-                        <p><span>02</span>Open the Command Palette: <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> on Mac, or
-                            <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>P</kbd> on Windows.
-                        </p>
-                        <p><span>03</span>Search for <strong>Git: Clone</strong>.</p>
-                        <p><span>04</span>Paste the GitHub repository URL.</p>
-                        <p><span>05</span>Choose a local folder, then open the cloned repository.</p>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">01</span>
+                            <p>Open VS Code.</p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">02</span>
+                            <p>
+                                Open the Command Palette:
+                                <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd>
+                                on Mac, or
+                                <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>P</kbd>
+                                on Windows.
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">03</span>
+                            <p>Search for <strong>Git: Clone</strong>.</p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">04</span>
+                            <p>Paste the GitHub repository URL.</p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">05</span>
+                            <p>
+                                Choose a local folder, then open the cloned
+                                repository.
+                            </p>
+                        </label>
+
                     </div>
+
                     <div class="code-card">
-                        <div class="code-card-top"><span>Terminal</span><button class="copy-button" type="button"
-                                data-copy="git status">Copy</button></div>
+                        <div class="code-card-top">
+                            <span>Terminal</span>
+                            <button class="copy-button" type="button" data-copy="git status">
+                                Copy
+                            </button>
+                        </div>
+
                         <pre><code>git status</code></pre>
                     </div>
-                    <div class="callout blue"><span>What to look for</span>
-                        <p>A clean working tree means Git sees no uncommitted changes yet. That is a useful baseline
-                            before you start building.</p>
+
+                    <div class="callout blue">
+                        <span>What to look for</span>
+
+                        <p>
+                            A clean working tree means Git sees no uncommitted
+                            changes yet. That is a useful baseline before you
+                            start building.
+                        </p>
                     </div>
+
                 </article>
 
+
+                <!-- STEP 3 -->
                 <article class="lesson" data-step="3">
-                    <div class="lesson-heading"><span class="step-number">03</span>
+
+                    <div class="lesson-heading">
+                        <span class="step-number">03</span>
+
                         <div>
                             <p class="eyebrow">Isolate your work</p>
                             <h2>Set up a Python virtual environment</h2>
                         </div>
                     </div>
-                    <p class="lead"><code>.venv</code> creates a private Python environment for this project. Packages
-                        installed here will not interfere with other projects on your computer.</p>
+
+                    <p class="lead">
+                        <code>.venv</code> creates a private Python environment
+                        for this project. Packages installed here will not
+                        interfere with other projects on your computer.
+                    </p>
+
                     <div class="platform-tabs" role="tablist" aria-label="Operating system">
+
                         <button class="platform-tab is-selected" type="button" role="tab" aria-selected="true"
-                            data-platform="mac">Mac / Linux</button>
+                            data-platform="mac">
+                            Mac / Linux
+                        </button>
+
                         <button class="platform-tab" type="button" role="tab" aria-selected="false"
-                            data-platform="windows">Windows</button>
+                            data-platform="windows">
+                            Windows
+                        </button>
+
                     </div>
+
                     <div class="platform-panel is-selected" data-platform-panel="mac">
-                        <div class="code-card">
-                            <div class="code-card-top"><span>Mac / Linux</span><button class="copy-button" type="button"
-                                    data-copy="python3 -m venv .venv\nsource .venv/bin/activate">Copy</button></div>
-                            <pre><code>python3 -m venv .venv
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">01</span>
+
+                            <div>
+                                <p>Create and activate the virtual environment.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Mac / Linux</span>
+
+                                        <button class="copy-button" type="button"
+                                            data-copy="python3 -m venv .venv\nsource .venv/bin/activate">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>python3 -m venv .venv
 source .venv/bin/activate</code></pre>
-                        </div>
+                                </div>
+                            </div>
+                        </label>
+
                     </div>
+
                     <div class="platform-panel" data-platform-panel="windows">
-                        <div class="code-card">
-                            <div class="code-card-top"><span>Windows</span><button class="copy-button" type="button"
-                                    data-copy="python -m venv .venv\n.venv\\Scripts\\activate">Copy</button></div>
-                            <pre><code>python -m venv .venv
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">01</span>
+
+                            <div>
+                                <p>Create and activate the virtual environment.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Windows</span>
+
+                                        <button class="copy-button" type="button"
+                                            data-copy="python -m venv .venv\n.venv\\Scripts\\activate">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>python -m venv .venv
 .venv\Scripts\activate</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <div class="instruction-list">
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">02</span>
+
+                            <div>
+                                <p>Upgrade pip.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button"
+                                            data-copy="python -m pip install --upgrade pip">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>python -m pip install --upgrade pip</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <div class="checkpoint">
+                        <span>✓</span>
+
+                        <div>
+                            <strong>Checkpoint</strong>
+
+                            <p>
+                                Your terminal prompt should begin with
+                                <code>(.venv)</code>. The <code>.venv</code>
+                                folder is local only and should never be
+                                committed.
+                            </p>
                         </div>
                     </div>
-                    <div class="code-card">
-                        <div class="code-card-top"><span>Upgrade pip</span><button class="copy-button" type="button"
-                                data-copy="python -m pip install --upgrade pip">Copy</button></div>
-                        <pre><code>python -m pip install --upgrade pip</code></pre>
-                    </div>
-                    <div class="checkpoint"><span>✓</span>
-                        <div><strong>Checkpoint</strong>
-                            <p>Your terminal prompt should begin with <code>(.venv)</code>. The <code>.venv</code>
-                                folder is local only and should never be committed.</p>
-                        </div>
-                    </div>
+
                 </article>
 
+
+                <!-- STEP 4 -->
                 <article class="lesson" data-step="4">
-                    <div class="lesson-heading"><span class="step-number">04</span>
+
+                    <div class="lesson-heading">
+                        <span class="step-number">04</span>
+
                         <div>
                             <p class="eyebrow">Declare the recipe</p>
                             <h2>Create requirements.txt</h2>
                         </div>
                     </div>
-                    <p class="lead">A requirements file records the packages the project needs. Anyone, including GitHub
-                        Actions, can install the same dependencies from this one small list.</p>
-                    <div class="file-label"><span class="file-icon">▤</span> requirements.txt</div>
-                    <div class="code-card">
-                        <div class="code-card-top"><span>requirements.txt</span><button class="copy-button"
-                                type="button" data-copy="pytest">Copy</button></div>
-                        <pre><code>pytest</code></pre>
+
+                    <p class="lead">
+                        A requirements file records the packages the project
+                        needs. Anyone, including GitHub Actions, can install
+                        the same dependencies from this one small list.
+                    </p>
+
+                    <div class="instruction-list">
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">01</span>
+
+                            <div>
+                                <p>
+                                    Create a file named
+                                    <strong>requirements.txt</strong>
+                                    in the project root.
+                                </p>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">02</span>
+
+                            <div>
+                                <p>Add <strong>pytest</strong> to the file.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>requirements.txt</span>
+
+                                        <button class="copy-button" type="button" data-copy="pytest">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>pytest</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">03</span>
+
+                            <div>
+                                <p>Install the requirements.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button"
+                                            data-copy="python -m pip install -r requirements.txt">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>python -m pip install -r requirements.txt</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">04</span>
+
+                            <div>
+                                <p>Verify that pytest is installed.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button" data-copy="pytest --version">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>pytest --version</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
                     </div>
-                    <div class="code-card">
-                        <div class="code-card-top"><span>Terminal</span><button class="copy-button" type="button"
-                                data-copy="python -m pip install -r requirements.txt\npytest --version">Copy</button>
-                        </div>
-                        <pre><code>python -m pip install -r requirements.txt
-pytest --version</code></pre>
+
+                    <div class="callout yellow">
+                        <span>The connection</span>
+
+                        <p>
+                            When GitHub Actions runs later, it will read this
+                            same file and install <code>pytest</code> in its
+                            fresh environment.
+                        </p>
                     </div>
-                    <div class="callout yellow"><span>The connection</span>
-                        <p>When GitHub Actions runs later, it will read this same file and install <code>pytest</code>
-                            in its fresh environment.</p>
-                    </div>
+
                 </article>
 
-                <article class="lesson" data-step="7">
-                    <div class="lesson-heading"><span class="step-number">07</span>
-                        <div>
-                            <p class="eyebrow">Your exercise</p>
-                            <h2>Create the source and test files</h2>
-                        </div>
-                    </div>
-                    <p class="lead">Now create these two files yourself. The source file defines a small function, and
-                        the test file checks that it works. Run the test before moving on.</p>
-                    <div class="file-pair">
-                        <div class="file-label"><span class="file-icon">{ }</span> src/main.py</div>
-                        <div class="file-label"><span class="file-icon">✓</span> tests/test_main.py</div>
-                    </div>
-                    <div class="code-card">
-                        <div class="code-card-top"><span>src/main.py</span><button class="copy-button" type="button"
-                                data-copy="def add(a, b):\n    return a + b">Copy</button></div>
-                        <pre><code><span class="syntax-keyword">def</span> add(a, b):
-    <span class="syntax-keyword">return</span> a + b</code></pre>
-                    </div>
-                    <div class="code-card">
-                        <div class="code-card-top"><span>tests/test_main.py</span><button class="copy-button"
-                                type="button"
-                                data-copy="from src.main import add\n\ndef test_add():\n    assert add(2, 3) == 5">Copy</button>
-                        </div>
-                        <pre><code><span class="syntax-keyword">from</span> src.main <span class="syntax-keyword">import</span> add
 
-<span class="syntax-keyword">def</span> test_add():
-    <span class="syntax-keyword">assert</span> add(2, 3) == 5</code></pre>
-                    </div>
-                    <div class="code-card">
-                        <div class="code-card-top"><span>Run it</span><button class="copy-button" type="button"
-                                data-copy="python -m pytest">Copy</button></div>
-                        <pre><code>python -m pytest</code></pre>
-                    </div>
-                    <div class="callout green"><span>Expected result</span>
-                        <p>The test should pass. A passing test is a small but meaningful signal that the project is
-                            behaving as expected.</p>
-                    </div>
-                </article>
-
+                <!-- STEP 5 -->
                 <article class="lesson" data-step="5">
-                    <div class="lesson-heading"><span class="step-number">05</span>
+
+                    <div class="lesson-heading">
+                        <span class="step-number">05</span>
+
                         <div>
                             <p class="eyebrow">Standardize the routine</p>
                             <h2>Create a Makefile</h2>
                         </div>
                     </div>
-                    <p class="lead">A Makefile gives the team memorable shortcuts for common commands. Everyone runs the
-                        same recipe, whether they are on a laptop or in CI.</p>
-                    <div class="file-label"><span class="file-icon">⌘</span> Makefile · project root</div>
-                    <div class="code-card">
-                        <div class="code-card-top"><span>Makefile</span><button class="copy-button" type="button"
-                                data-copy=".PHONY: install test\n\ninstall:\n\tpip install -r requirements.txt\n\ntest:\n\tpython -m pytest">Copy</button>
-                        </div>
-                        <pre><code>.PHONY: install test
+
+                    <p class="lead">
+                        A Makefile gives the team memorable shortcuts for
+                        common commands. Everyone runs the same recipe.
+                    </p>
+
+                    <div class="instruction-list">
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">01</span>
+
+                            <p>
+                                Create a file named <strong>Makefile</strong>
+                                in the project root.
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">02</span>
+
+                            <div>
+                                <p>Add the following targets.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Makefile</span>
+
+                                        <button class="copy-button" type="button"
+                                            data-copy=".PHONY: install test\n\ninstall:\n\tpip install -r requirements.txt\n\ntest:\n\tpython -m pytest">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>.PHONY: install test
 
 install:
-    pip install -r requirements.txt
+	pip install -r requirements.txt
 
 test:
-    python -m pytest</code></pre>
+	python -m pytest</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">03</span>
+
+                            <div>
+                                <p>Run the install command.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button" data-copy="make install">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>make install</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">04</span>
+
+                            <div>
+                                <p>Run the test command.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button" data-copy="make test">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>make test</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
                     </div>
-                    <div class="callout red"><span>Important</span>
-                        <p>Makefile commands must begin with a real <strong>TAB</strong> character, not spaces. The code
-                            block visually shows indentation, but type Tab in your editor.</p>
+
+                    <div class="callout red">
+                        <span>Important</span>
+
+                        <p>
+                            Makefile commands must begin with a real
+                            <strong>TAB</strong> character, not spaces.
+                        </p>
                     </div>
-                    <div class="command-row"><code>make install</code><span>→</span><code>make test</code></div>
-                    <p class="small-note">The commands will be ready to use after you add the source and test files in
-                        the next step.</p>
+
                 </article>
 
+
+                <!-- STEP 6 -->
                 <article class="lesson" data-step="6">
-                    <div class="lesson-heading"><span class="step-number">06</span>
+
+                    <div class="lesson-heading">
+                        <span class="step-number">06</span>
+
                         <div>
                             <p class="eyebrow">Automate the check</p>
                             <h2>Add GitHub Actions</h2>
                         </div>
                     </div>
-                    <p class="lead">GitHub Actions runs repeatable tasks in the cloud when code changes. Add this file
-                        at <code>.github/workflows/test.yml</code>.</p>
-                    <div class="code-card yaml-card">
-                        <div class="code-card-top"><span>.github/workflows/test.yml</span><button class="copy-button"
-                                type="button"
-                                data-copy="name: Tests\n\non:\n  push:\n  pull_request:\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Set up Python\n        uses: actions/setup-python@v5\n        with:\n          python-version: \"
-                                3.12\"\n\n - name: Install dependencies\n run: pip install -r requirements.txt\n\n -
-                                name: Run tests\n run: python -m pytest">Copy</button></div>
-                        <pre><code><span class="syntax-key">name:</span> Tests
 
-<span class="syntax-key">on:</span>
-  <span class="syntax-key">push:</span>
-  <span class="syntax-key">pull_request:</span>
+                    <p class="lead">
+                        GitHub Actions runs repeatable tasks in the cloud when
+                        code changes.
+                    </p>
 
-<span class="syntax-key">jobs:</span>
-  <span class="syntax-key">test:</span>
-    <span class="syntax-key">runs-on:</span> ubuntu-latest
+                    <div class="instruction-list">
 
-    <span class="syntax-key">steps:</span>
-      - <span class="syntax-key">name:</span> Checkout repository
-        <span class="syntax-key">uses:</span> actions/checkout@v4
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">01</span>
 
-      - <span class="syntax-key">name:</span> Set up Python
-        <span class="syntax-key">uses:</span> actions/setup-python@v5
-        <span class="syntax-key">with:</span>
-          <span class="syntax-key">python-version:</span> "3.12"
+                            <p>
+                                Create the folder
+                                <code>.github/workflows/</code>.
+                            </p>
+                        </label>
 
-      - <span class="syntax-key">name:</span> Install dependencies
-        <span class="syntax-key">run:</span> pip install -r requirements.txt
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">02</span>
 
-      - <span class="syntax-key">name:</span> Run tests
-        <span class="syntax-key">run:</span> python -m pytest</code></pre>
+                            <p>
+                                Create
+                                <code>.github/workflows/test.yml</code>.
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">03</span>
+
+                            <div>
+                                <p>Paste the workflow below.</p>
+
+                                <div class="code-card yaml-card">
+                                    <div class="code-card-top">
+                                        <span>.github/workflows/test.yml</span>
+
+                                        <button class="copy-button" type="button"
+                                            data-copy="name: Tests\n\non:\n  push:\n  pull_request:\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Set up Python\n        uses: actions/setup-python@v5\n        with:\n          python-version: &quot;3.12&quot;\n\n      - name: Install dependencies\n        run: pip install -r requirements.txt\n\n      - name: Run tests\n        run: python -m pytest">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m pytest</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
                     </div>
-                    <div class="callout blue"><span>Next step</span>
-                        <p>The workflow is in place. In the next step, add the source and test files it will run.</p>
-                    </div>
+
                     <div class="concept-grid">
-                        <div><strong>name</strong><span>Label for the workflow.</span></div>
-                        <div><strong>on</strong><span>Events that start it.</span></div>
-                        <div><strong>jobs</strong><span>Work to perform.</span></div>
-                        <div><strong>runs-on</strong><span>Machine to use.</span></div>
-                        <div><strong>steps</strong><span>Ordered actions and commands.</span></div>
+
+                        <div>
+                            <strong>name</strong>
+                            <span>Label for the workflow.</span>
+                        </div>
+
+                        <div>
+                            <strong>on</strong>
+                            <span>Events that start it.</span>
+                        </div>
+
+                        <div>
+                            <strong>jobs</strong>
+                            <span>Work to perform.</span>
+                        </div>
+
+                        <div>
+                            <strong>runs-on</strong>
+                            <span>Machine to use.</span>
+                        </div>
+
+                        <div>
+                            <strong>steps</strong>
+                            <span>Ordered actions and commands.</span>
+                        </div>
+
                     </div>
+
                 </article>
 
+
+                <!-- STEP 7 -->
+                <article class="lesson" data-step="7">
+
+                    <div class="lesson-heading">
+                        <span class="step-number">07</span>
+
+                        <div>
+                            <p class="eyebrow">Your exercise</p>
+                            <h2>Create the source and test files</h2>
+                        </div>
+                    </div>
+
+                    <p class="lead">
+                        Now create these two files yourself. The source file
+                        defines a small function, and the test file checks that
+                        it works.
+                    </p>
+
+                    <div class="instruction-list">
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">01</span>
+
+                            <p>
+                                Create <code>src/main.py</code>.
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">02</span>
+
+                            <div>
+                                <p>Add the following function.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>src/main.py</span>
+
+                                        <button class="copy-button" type="button"
+                                            data-copy="def add(a, b):\n    return a + b">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>def add(a, b):
+    return a + b</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">03</span>
+
+                            <p>
+                                Create <code>tests/test_main.py</code>.
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">04</span>
+
+                            <div>
+                                <p>Add the test.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>tests/test_main.py</span>
+
+                                        <button class="copy-button" type="button"
+                                            data-copy="from src.main import add\n\ndef test_add():\n    assert add(2, 3) == 5">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>from src.main import add
+
+def test_add():
+    assert add(2, 3) == 5</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">05</span>
+
+                            <div>
+                                <p>Run the test.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button" data-copy="python -m pytest">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>python -m pytest</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    <div class="callout green">
+                        <span>Expected result</span>
+
+                        <p>
+                            The test should pass. A passing test is a small but
+                            meaningful signal that the project is behaving as
+                            expected.
+                        </p>
+                    </div>
+
+                </article>
+
+
+                <!-- STEP 8 -->
                 <article class="lesson" data-step="8">
-                    <div class="lesson-heading"><span class="step-number">08</span>
+
+                    <div class="lesson-heading">
+                        <span class="step-number">08</span>
+
                         <div>
                             <p class="eyebrow">See the system work</p>
                             <h2>Push and test GitHub Actions</h2>
                         </div>
                     </div>
-                    <p class="lead">Push the project to GitHub. Actions will create a fresh environment, check out your
-                        files, install Python and pytest, and run the test suite.</p>
-                    <div class="code-card">
-                        <div class="code-card-top"><span>Terminal</span><button class="copy-button" type="button"
-                                data-copy="git status\ngit add .\ngit commit -m \" Add GitHub Actions workflow\"\ngit
-                                push">Copy</button></div>
-                        <pre><code>git status
-git add .
-git commit -m "Add GitHub Actions workflow"
-git push</code></pre>
+
+                    <p class="lead">
+                        Push the project to GitHub. Actions will create a fresh
+                        environment, check out your files, install Python and
+                        pytest, and run the test suite.
+                    </p>
+
+                    <div class="instruction-list">
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">01</span>
+
+                            <div>
+                                <p>Check your Git status.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button" data-copy="git status">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>git status</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">02</span>
+
+                            <div>
+                                <p>Add your changes.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button" data-copy="git add .">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>git add .</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">03</span>
+
+                            <div>
+                                <p>Commit your changes.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button"
+                                            data-copy='git commit -m "Add GitHub Actions workflow"'>
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>git commit -m "Add GitHub Actions workflow"</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">04</span>
+
+                            <div>
+                                <p>Push to GitHub.</p>
+
+                                <div class="code-card">
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+
+                                        <button class="copy-button" type="button" data-copy="git push">
+                                            Copy
+                                        </button>
+                                    </div>
+
+                                    <pre><code>git push</code></pre>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">05</span>
+
+                            <p>
+                                Open your repository on GitHub and click
+                                <strong>Actions</strong>.
+                            </p>
+                        </label>
+
+                        <label class="instruction-item">
+                            <input type="checkbox">
+                            <span class="list-number">06</span>
+
+                            <p>
+                                Confirm that the workflow passes all four
+                                steps.
+                            </p>
+                        </label>
+
                     </div>
+
                     <div class="action-steps">
-                        <div class="action-step is-done"><span>✓</span>Checkout repository</div>
-                        <div class="action-step is-done"><span>✓</span>Set up Python</div>
-                        <div class="action-step is-done"><span>✓</span>Install dependencies</div>
-                        <div class="action-step is-done"><span>✓</span>Run tests</div>
+
+                        <div class="action-step is-done">
+                            <span>✓</span>
+                            Checkout repository
+                        </div>
+
+                        <div class="action-step is-done">
+                            <span>✓</span>
+                            Set up Python
+                        </div>
+
+                        <div class="action-step is-done">
+                            <span>✓</span>
+                            Install dependencies
+                        </div>
+
+                        <div class="action-step is-done">
+                            <span>✓</span>
+                            Run tests
+                        </div>
+
                     </div>
-                    <div class="callout blue"><span>Try the red path</span>
-                        <p>Change <code>assert add(2, 3) == 5</code> to <code>assert add(2, 3) == 10</code>. Commit and
-                            push to watch Actions fail. Fix it and push again to make it pass.</p>
+
+                    <div class="callout blue">
+                        <span>Try the red path</span>
+
+                        <p>
+                            Change
+                            <code>assert add(2, 3) == 5</code>
+                            to
+                            <code>assert add(2, 3) == 10</code>.
+                            Commit and push to watch Actions fail. Fix it and
+                            push again to make it pass.
+                        </p>
                     </div>
-                    <p class="small-note">On GitHub, open your repository and click <strong>Actions</strong> to watch
-                        each run.</p>
+
                 </article>
 
+
+                <!-- STEP 9 -->
                 <article class="lesson completion-lesson" data-step="9">
+
                     <div class="completion-badge">✓</div>
+
                     <p class="eyebrow">Lab complete</p>
+
                     <h2>You're Done!</h2>
-                    <p class="lead">You built a reusable project starter and taught GitHub how to check it
-                        automatically.</p>
+
+                    <p class="lead">
+                        You built a reusable project starter and taught GitHub
+                        how to check it automatically.
+                    </p>
+
                     <div class="completion-checklist">
+
                         <div>✓ <span>GitHub repository</span></div>
                         <div>✓ <span>Python virtual environment</span></div>
                         <div>✓ <span>requirements.txt</span></div>
@@ -372,9 +1099,15 @@ git push</code></pre>
                         <div>✓ <span>Makefile</span></div>
                         <div>✓ <span>GitHub Actions</span></div>
                         <div>✓ <span>README</span></div>
+
                     </div>
+
                     <div class="tree-card">
-                        <div class="tree-title">Final project structure</div>
+
+                        <div class="tree-title">
+                            Final project structure
+                        </div>
+
                         <pre><code>my-python-template/
 ├── .github/
 │   └── workflows/
@@ -388,19 +1121,40 @@ git push</code></pre>
 ├── Makefile
 ├── README.md
 └── requirements.txt</code></pre>
+
                     </div>
-                    <button class="completion-action" type="button" id="restart-lab">Review the lab again ↺</button>
+
+                    <button class="completion-action" type="button" id="restart-lab">
+                        Review the lab again ↺
+                    </button>
+
                 </article>
 
-                <div class="lesson-controls"><button class="secondary-button" type="button" id="back-button">←
-                        Back</button><button class="next-button" type="button" id="next-button">I've finished this
-                        <span>→</span></button></div>
+
+                <!-- CONTROLS -->
+                <div class="lesson-controls">
+
+                    <button class="secondary-button" type="button" id="back-button">
+                        ← Back
+                    </button>
+
+                    <button class="next-button" type="button" id="next-button">
+                        I've finished this
+                        <span>→</span>
+                    </button>
+
+                </div>
+
             </section>
         </div>
     </main>
 
-    <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        Copied to clipboard
+    </div>
+
     <script src="script.js"></script>
+
 </body>
 
 </html>
