@@ -46,3 +46,26 @@ pull requests.
 To demonstrate a failing workflow, temporarily change the expected result in
 `tests/test_main.py`, push the change, and then restore it after showing the
 failed run.
+
+## Run the interactive lab
+
+The lab is a static site made with HTML, CSS, and vanilla JavaScript. Open
+`index.html` directly in a browser, or serve the repository locally:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
+
+## Publish with GitHub Pages
+
+1. Push the repository to GitHub.
+2. Open the repository's **Settings** tab.
+3. Select **Pages** in the left sidebar.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Select the `main` branch and the `/ (root)` folder, then click **Save**.
+6. Open the published URL shown by GitHub Pages.
+
+GitHub Pages serves `index.html` from the repository root. No backend or build
+step is required.
