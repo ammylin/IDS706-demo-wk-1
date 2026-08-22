@@ -1,3 +1,5 @@
+[![Python tests](https://github.com/ammylin/IDS706-demo-wk-1/actions/workflows/test.yml/badge.svg)](https://github.com/ammylin/IDS706-demo-wk-1/actions/workflows/test.yml)
+
 # Software Engineering Basics Demo
 
 A small Python project for practicing virtual environments, dependencies,
