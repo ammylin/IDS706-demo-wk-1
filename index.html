@@ -1512,6 +1512,83 @@ def test_add():
 
                         </label>
 
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">06</span>
+
+                            <div>
+
+                                <p>
+                                    Create a <code>README.md</code> that
+                                    explains your project and how to use it.
+                                </p>
+
+                                <div class="callout blue">
+
+                                    <span>Why you need a README</span>
+
+                                    <p>
+                                        A README helps other people
+                                        understand what your project does,
+                                        how to run it, and why the project
+                                        exists. It also makes your work easier
+                                        to review and reuse later.
+                                    </p>
+
+                                </div>
+
+                                <p>
+                                    Ideas for what to include:
+                                </p>
+
+                                <ul>
+                                    <li>Project purpose and short description</li>
+                                    <li>How to install dependencies</li>
+                                    <li>How to run the test suite</li>
+                                    <li>What the main function does</li>
+                                    <li>Example input and output</li>
+                                    <li>Any important notes or next steps</li>
+                                </ul>
+
+                                <p>
+                                    <strong>Examples of README content:</strong>
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+
+                                        <span>Example README content</span>
+
+                                    </div>
+
+                                    <pre><code># My Python Project
+
+This project contains a small function that adds two numbers.
+
+## Setup
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+## Run tests
+python -m pytest
+
+## Example
+from src.main import add
+
+result = add(2, 3)
+print(result)  # 5</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
                     </div>
 
 
@@ -1522,7 +1599,8 @@ def test_add():
                         <p>
                             Your test should pass. A passing test is a
                             small but meaningful signal that your project
-                            is behaving as expected.
+                            is behaving as expected. Your README should also
+                            help someone else understand the project quickly.
                         </p>
 
                     </div>

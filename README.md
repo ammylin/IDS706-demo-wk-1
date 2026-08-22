@@ -49,14 +49,20 @@ failed run.
 
 ## Run the interactive lab
 
-The lab is a static site made with HTML, CSS, and vanilla JavaScript. Open
-`index.html` directly in a browser, or serve the repository locally:
+The lab is a static site made with HTML, CSS, and vanilla JavaScript. You can
+launch it locally by serving the repository and opening the page in your browser:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Then visit:
+
+- `http://localhost:8000`
+- or open `index.html` directly in a browser
+
+This project is designed to be run as a local demo in the browser while the
+Python project logic is tested from the terminal.
 
 ## Publish with GitHub Pages
 
