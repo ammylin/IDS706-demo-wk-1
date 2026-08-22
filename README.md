@@ -3,6 +3,10 @@
 A small Python project for practicing virtual environments, dependencies,
 Makefiles, tests, and GitHub Actions.
 
+## Live demo
+
+Published demo: https://ammylin.github.io/IDS706-demo-wk-1/
+
 ## Setup
 
 Create and activate a virtual environment:
@@ -60,6 +64,7 @@ Then visit:
 
 - `http://localhost:8000`
 - or open `index.html` directly in a browser
+- live GitHub Pages demo: https://ammylin.github.io/IDS706-demo-wk-1/
 
 This project is designed to be run as a local demo in the browser while the
 Python project logic is tested from the terminal.
