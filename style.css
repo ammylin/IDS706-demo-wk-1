@@ -818,7 +818,7 @@ pre {
 }
 
 .tree-card {
-    background: #eef5ff;
+    background: #f5f8ff !important;
     border: 1px solid #dfeafc;
     border-radius: 12px;
     box-shadow: 0 10px 24px rgba(32, 52, 92, .08);
@@ -829,18 +829,19 @@ pre {
 }
 
 .tree-title {
-    background: #f8fbff;
+    background: #f8fbff !important;
     border-bottom: 1px solid #dfeafc;
-    color: #2d4e7b;
+    color: #2d4e7b !important;
     font-size: 11px;
     letter-spacing: .08em;
     padding: 12px 20px;
     text-transform: uppercase;
 }
 
-.tree-card pre {
-    background: #eef5ff;
-    color: #1d3557;
+.tree-card pre,
+.tree-card pre code {
+    background: #f5f8ff !important;
+    color: #1d3557 !important;
 }
 
 .completion-action {
