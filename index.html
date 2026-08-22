@@ -386,6 +386,14 @@
                     <li>
                         <button type="button" data-go-to="10">
                             <span>10</span>
+                            CI/CD badge
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="11">
+                            <span>11</span>
                             Completion
                             <b>✓</b>
                         </button>
@@ -1884,10 +1892,176 @@ print(result)  # 5</code></pre>
 
 
                 <!-- =================================================
-                     STEP 10 — COMPLETION
+                     STEP 10 — BADGE
                      ================================================= -->
 
-                <article class="lesson completion-lesson" data-step="10">
+                <article class="lesson" data-step="10">
+
+                    <div class="lesson-heading">
+
+                        <span class="step-number">10</span>
+
+                        <div>
+                            <p class="eyebrow">Professional touch</p>
+                            <h2>Add a CI/CD status badge to your README</h2>
+                        </div>
+
+                    </div>
+
+                    <p class="lead">
+                        Once your GitHub Actions workflow is passing, you can add a badge
+                        to your README so visitors can immediately see the current status.
+                    </p>
+
+
+                    <div class="instruction-list">
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">01</span>
+
+                            <div>
+
+                                <p>
+                                    Open your repository on GitHub and click the
+                                    <strong>Actions</strong> tab.
+                                </p>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">02</span>
+
+                            <div>
+
+                                <p>
+                                    Select the workflow run you want to show, such as
+                                    <strong>Python tests</strong>.
+                                </p>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">03</span>
+
+                            <div>
+
+                                <p>
+                                    Click the <strong>Create status badge</strong> button or
+                                    the badge menu in the workflow page.
+                                </p>
+
+                                <div class="callout blue">
+
+                                    <span>Tip</span>
+
+                                    <p>
+                                        GitHub will generate a Markdown snippet for you. This is
+                                        usually the fastest and simplest way to create a badge.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">04</span>
+
+                            <div>
+
+                                <p>
+                                    Copy the generated Markdown snippet and paste it near the top of
+                                    your <code>README.md</code>.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+
+                                        <span>Example badge snippet</span>
+
+                                    </div>
+
+                                    <pre><code>![CI](https://github.com/OWNER/REPO/actions/workflows/test.yml/badge.svg)</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">05</span>
+
+                            <div>
+
+                                <p>
+                                    Replace the example values with your actual GitHub username,
+                                    repository name, and workflow file name.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+
+                                        <span>Example with your repository</span>
+
+                                    </div>
+
+                                    <pre><code>![CI](https://github.com/ammylin/IDS706-demo-wk-1/actions/workflows/test.yml/badge.svg)</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="callout green">
+
+                        <span>Expected result</span>
+
+                        <p>
+                            Your README should now show a badge that reflects the current
+                            status of your GitHub Actions workflow.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     STEP 11 — COMPLETION
+                     ================================================= -->
+
+                <article class="lesson completion-lesson" data-step="11">
 
                     <div class="completion-badge">
                         ✓
