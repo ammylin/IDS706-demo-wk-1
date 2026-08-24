@@ -1,4 +1,6 @@
-.PHONY: install test run clean
+.PHONY: install test run docker-build docker-run docker-test clean
+
+IMAGE_NAME := data-engineering-demo
 
 # Install dependencies
 install:
@@ -11,6 +13,18 @@ test:
 # Run the application
 run:
 	python src/main.py
+
+# Build the Docker image
+docker-build:
+	docker build -t $(IMAGE_NAME) .
+
+# Run the application inside Docker
+docker-run:
+	docker run -it --rm $(IMAGE_NAME)
+
+# Run the test suite inside Docker
+docker-test:
+	docker run --rm $(IMAGE_NAME) python -m pytest -q
 
 # Clean generated files
 clean:

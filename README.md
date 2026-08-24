@@ -3,8 +3,8 @@
 # Software Engineering Basics Demo
 
 A small Python project for practicing virtual environments, dependencies,
-Makefiles, tests, and GitHub Actions. The demo asks for a user's name and
-prints a welcome message for the Data Engineering course.
+Makefiles, tests, Docker, and GitHub Actions. The demo asks for a user's name
+and prints a welcome message for the Data Engineering course.
 
 ## Live demo
 
@@ -48,9 +48,39 @@ make test
 The test suite also runs automatically through GitHub Actions on pushes and
 pull requests.
 
-The required lab work is to replicate the provided function and test example.
-Students may optionally change the message, improve the input handling, or
-add tests and related functions for 1-3 bonus points.
+## Run with Docker
+
+Docker packages the Python version, dependencies, source code, and startup
+command into a portable image. This helps the project behave consistently on
+different computers and gives GitHub Actions the same kind of environment to
+test.
+
+Make sure Docker Desktop is installed and running, then build the image:
+
+```bash
+make docker-build
+```
+
+Run the interactive program in the container:
+
+```bash
+make docker-run
+```
+
+Run the tests inside the container:
+
+```bash
+make docker-test
+```
+
+The `Dockerfile` defines the image recipe, while `.dockerignore` keeps local
+files such as `.venv` and cache directories out of the image. The Docker image
+is named `data-engineering-demo` by the Makefile.
+
+The required lab work is to replicate the provided Python, test, Dockerfile,
+and Docker commands. Students may optionally change the message, improve the
+input handling, add tests or related functions, or improve the container setup
+for 1-3 bonus points.
 
 ## Demonstrate GitHub Actions
 
@@ -58,7 +88,8 @@ add tests and related functions for 1-3 bonus points.
 2. Open the repository's **Actions** tab.
 3. Select **Python tests**.
 4. Select **Run workflow**, choose the `main` branch, and run it.
-5. Open the workflow run to show the install and test steps.
+5. Open the workflow run to show the install, test, Docker build, and container
+	test steps.
 
 To demonstrate a failing workflow, temporarily change the expected result in
 `tests/test_main.py`, push the change, and then restore it after showing the

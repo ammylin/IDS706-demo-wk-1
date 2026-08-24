@@ -1,4 +1,4 @@
-const TOTAL_STEPS = 11;
+const TOTAL_STEPS = 12;
 const STORAGE_KEY = "python-template-lab-progress";
 const PLATFORM_KEY = "python-template-lab-platform";
 

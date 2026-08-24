@@ -284,7 +284,7 @@
         <section class="progress-panel" aria-label="Lab progress">
 
             <div class="progress-meta">
-                <span id="step-label">Step 1 of 9</span>
+                <span id="step-label">Step 1 of 12</span>
                 <span id="progress-percent">0% complete</span>
             </div>
 
@@ -354,7 +354,7 @@
                     <li>
                         <button type="button" data-go-to="6">
                             <span>06</span>
-                            GitHub Actions
+                            Docker
                             <b>✓</b>
                         </button>
                     </li>
@@ -362,7 +362,7 @@
                     <li>
                         <button type="button" data-go-to="7">
                             <span>07</span>
-                            Write a test
+                            GitHub Actions
                             <b>✓</b>
                         </button>
                     </li>
@@ -370,7 +370,7 @@
                     <li>
                         <button type="button" data-go-to="8">
                             <span>08</span>
-                            Write a README
+                            Write a test
                             <b>✓</b>
                         </button>
                     </li>
@@ -378,7 +378,7 @@
                     <li>
                         <button type="button" data-go-to="9">
                             <span>09</span>
-                            Push and test
+                            Write a README
                             <b>✓</b>
                         </button>
                     </li>
@@ -386,7 +386,7 @@
                     <li>
                         <button type="button" data-go-to="10">
                             <span>10</span>
-                            CI/CD badge
+                            Push and test
                             <b>✓</b>
                         </button>
                     </li>
@@ -394,6 +394,14 @@
                     <li>
                         <button type="button" data-go-to="11">
                             <span>11</span>
+                            CI/CD badge
+                            <b>✓</b>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button type="button" data-go-to="12">
+                            <span>12</span>
                             Completion
                             <b>✓</b>
                         </button>
@@ -1087,13 +1095,15 @@ source .venv/bin/activate</code></pre>
                                         <span>Makefile</span>
 
                                         <button class="copy-button" type="button"
-                                            data-copy=".PHONY: install test run clean\n\n# Install dependencies\ninstall:\n\tpython -m pip install -r requirements.txt\n\n# Run tests\ntest:\n\tpython -m pytest -q\n\n# Run the application\nrun:\n\tpython src/main.py\n\n# Clean generated files\nclean:\n\trm -rf __pycache__\n\trm -rf .pytest_cache">
+                                            data-copy=".PHONY: install test run docker-build docker-run docker-test clean\n\nIMAGE_NAME := data-engineering-demo\n\n# Install dependencies\ninstall:\n\tpython -m pip install -r requirements.txt\n\n# Run tests\ntest:\n\tpython -m pytest -q\n\n# Run the application\nrun:\n\tpython src/main.py\n\n# Build the Docker image\ndocker-build:\n\tdocker build -t $(IMAGE_NAME) .\n\n# Run the application inside Docker\ndocker-run:\n\tdocker run -it --rm $(IMAGE_NAME)\n\n# Run the test suite inside Docker\ndocker-test:\n\tdocker run --rm $(IMAGE_NAME) python -m pytest -q\n\n# Clean generated files\nclean:\n\trm -rf __pycache__\n\trm -rf .pytest_cache">
                                             Copy
                                         </button>
 
                                     </div>
 
-                                    <pre><code>.PHONY: install test run clean
+                                    <pre><code>.PHONY: install test run docker-build docker-run docker-test clean
+
+IMAGE_NAME := data-engineering-demo
 
 # Install dependencies
 install:
@@ -1106,6 +1116,18 @@ test:
 # Run the application
 run:
 	python src/main.py
+
+# Build the Docker image
+docker-build:
+    docker build -t $(IMAGE_NAME) .
+
+# Run the application inside Docker
+docker-run:
+    docker run -it --rm $(IMAGE_NAME)
+
+# Run the test suite inside Docker
+docker-test:
+    docker run --rm $(IMAGE_NAME) python -m pytest -q
 
 # Clean generated files
 clean:
@@ -1204,7 +1226,7 @@ clean:
 
 
                 <!-- =================================================
-                     STEP 6 — GITHUB ACTIONS
+                     STEP 6 — DOCKER
                      ================================================= -->
 
                 <article class="lesson" data-step="6">
@@ -1212,6 +1234,240 @@ clean:
                     <div class="lesson-heading">
 
                         <span class="step-number">06</span>
+
+                        <div>
+                            <p class="eyebrow">Package the environment</p>
+                            <h2>Run the project with Docker</h2>
+                        </div>
+
+                    </div>
+
+                    <p class="lead">
+                        Docker packages your project and its dependencies into a
+                        portable image. Anyone with Docker can build the same image
+                        and run the same application without installing Python locally.
+                    </p>
+
+                    <div class="callout yellow">
+
+                        <span>Why use Docker?</span>
+
+                        <p>
+                            A virtual environment isolates packages on your computer.
+                            Docker goes one step further by describing the Python
+                            version, dependencies, files, and startup command together.
+                            This makes the project easier to reproduce on another laptop
+                            or in a CI/CD environment.
+                        </p>
+
+                    </div>
+
+                    <div class="instruction-list">
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">01</span>
+
+                            <div>
+
+                                <p>
+                                    Install and start <strong>Docker Desktop</strong>, then
+                                    confirm Docker is running.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+                                    </div>
+
+                                    <pre><code>docker --version</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">02</span>
+
+                            <div>
+
+                                <p>
+                                    Create a <code>Dockerfile</code> in the project root
+                                    and copy in the project setup instructions.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+                                        <span>Dockerfile</span>
+                                    </div>
+
+                                    <pre><code>FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src ./src
+COPY tests ./tests
+
+CMD ["python", "src/main.py"]</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">03</span>
+
+                            <div>
+
+                                <p>
+                                    Create a <code>.dockerignore</code> file so local
+                                    environments and unnecessary files stay out of the image.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+                                        <span>.dockerignore</span>
+                                    </div>
+
+                                    <pre><code>.venv
+__pycache__
+.pytest_cache
+.git
+.github</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">04</span>
+
+                            <div>
+
+                                <p>
+                                    Build the image using the Makefile shortcut.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+                                    </div>
+
+                                    <pre><code>make docker-build</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">05</span>
+
+                            <div>
+
+                                <p>
+                                    Run the welcome program inside the container and enter
+                                    your name when prompted.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+                                    </div>
+
+                                    <pre><code>make docker-run</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">06</span>
+
+                            <div>
+
+                                <p>
+                                    Run the tests inside the container.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+                                        <span>Terminal</span>
+                                    </div>
+
+                                    <pre><code>make docker-test</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                    <div class="callout green">
+
+                        <span>Expected result</span>
+
+                        <p>
+                            Docker builds successfully, the program runs in the container,
+                            and the test suite passes there too.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     STEP 7 — GITHUB ACTIONS
+                     ================================================= -->
+
+                <article class="lesson" data-step="7">
+
+                    <div class="lesson-heading">
+
+                        <span class="step-number">07</span>
 
                         <div>
                             <p class="eyebrow">Automate the check</p>
@@ -1278,24 +1534,25 @@ clean:
                                         <span>.github/workflows/test.yml</span>
 
                                         <button class="copy-button" type="button"
-                                            data-copy="name: Tests\n\non:\n  push:\n  pull_request:\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Set up Python\n        uses: actions/setup-python@v5\n        with:\n          python-version: &quot;3.12&quot;\n\n      - name: Install dependencies\n        run: pip install -r requirements.txt\n\n      - name: Run tests\n        run: python -m pytest">
+                                            data-copy="name: Python tests\n\non:\n  push:\n  pull_request:\n  workflow_dispatch:\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v4\n\n      - name: Set up Python\n        uses: actions/setup-python@v5\n        with:\n          python-version: &quot;3.12&quot;\n\n      - name: Install dependencies\n        run: make install\n\n      - name: Run tests\n        run: make test\n\n      - name: Build Docker image\n        run: make docker-build\n\n      - name: Run tests in Docker\n        run: make docker-test">
                                             Copy
                                         </button>
 
                                     </div>
 
-                                    <pre><code>name: Tests
+                                    <pre><code>name: Python tests
 
 on:
   push:
   pull_request:
+    workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+    - name: Check out repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -1304,10 +1561,16 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+                run: make install
 
       - name: Run tests
-        run: python -m pytest</code></pre>
+                run: make test
+
+            - name: Build Docker image
+                run: make docker-build
+
+            - name: Run tests in Docker
+                run: make docker-test</code></pre>
 
                                 </div>
 
@@ -1351,14 +1614,14 @@ jobs:
 
 
                 <!-- =================================================
-                     STEP 7 — EXAMPLE / OPTIONAL EXPLORATION
+                     STEP 8 — EXAMPLE / OPTIONAL EXPLORATION
                      ================================================= -->
 
-                <article class="lesson" data-step="7">
+                <article class="lesson" data-step="8">
 
                     <div class="lesson-heading">
 
-                        <span class="step-number">07</span>
+                        <span class="step-number">08</span>
 
                         <div>
                             <p class="eyebrow">Follow the example</p>
@@ -1566,14 +1829,14 @@ def test_welcome_message():
 
 
                 <!-- =================================================
-                     STEP 8 — README
+                     STEP 9 — README
                      ================================================= -->
 
-                <article class="lesson" data-step="8">
+                <article class="lesson" data-step="9">
 
                     <div class="lesson-heading">
 
-                        <span class="step-number">08</span>
+                        <span class="step-number">09</span>
 
                         <div>
                             <p class="eyebrow">Your homework</p>
@@ -1677,14 +1940,14 @@ Ammy, welcome to the Data Engineering course.</code></pre>
 
 
                 <!-- =================================================
-                     STEP 9 — PUSH
+                     STEP 10 — PUSH
                      ================================================= -->
 
-                <article class="lesson" data-step="9">
+                <article class="lesson" data-step="10">
 
                     <div class="lesson-heading">
 
-                        <span class="step-number">09</span>
+                        <span class="step-number">10</span>
 
                         <div>
                             <p class="eyebrow">See the system work</p>
@@ -1857,7 +2120,7 @@ Ammy, welcome to the Data Engineering course.</code></pre>
 
                             <p>
                                 Confirm that the workflow passes all
-                                four steps.
+                                six steps, including the Docker checks.
                             </p>
 
                         </label>
@@ -1887,6 +2150,16 @@ Ammy, welcome to the Data Engineering course.</code></pre>
                             Run tests
                         </div>
 
+                        <div class="action-step is-done">
+                            <span>✓</span>
+                            Build Docker image
+                        </div>
+
+                        <div class="action-step is-done">
+                            <span>✓</span>
+                            Run tests in Docker
+                        </div>
+
                     </div>
 
 
@@ -1908,14 +2181,14 @@ Ammy, welcome to the Data Engineering course.</code></pre>
 
 
                 <!-- =================================================
-                     STEP 10 — BADGE
+                     STEP 11 — BADGE
                      ================================================= -->
 
-                <article class="lesson" data-step="10">
+                <article class="lesson" data-step="11">
 
                     <div class="lesson-heading">
 
-                        <span class="step-number">10</span>
+                        <span class="step-number">11</span>
 
                         <div>
                             <p class="eyebrow">Professional touch</p>
@@ -2046,10 +2319,10 @@ Ammy, welcome to the Data Engineering course.</code></pre>
 
 
                 <!-- =================================================
-                     STEP 11 — COMPLETION
+                     STEP 12 — COMPLETION
                      ================================================= -->
 
-                <article class="lesson completion-lesson" data-step="11">
+                <article class="lesson completion-lesson" data-step="12">
 
                     <div class="completion-badge">
                         ✓
@@ -2116,6 +2389,8 @@ Ammy, welcome to the Data Engineering course.</code></pre>
 ├── .github/
 │   └── workflows/
 │       └── test.yml
+├── .dockerignore
+├── Dockerfile
 ├── .venv/                 # local only; do NOT commit
 ├── src/
 │   └── main.py
