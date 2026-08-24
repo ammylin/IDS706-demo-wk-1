@@ -3,7 +3,8 @@
 # Software Engineering Basics Demo
 
 A small Python project for practicing virtual environments, dependencies,
-Makefiles, tests, and GitHub Actions.
+Makefiles, tests, and GitHub Actions. The demo asks for a user's name and
+prints a welcome message for the Data Engineering course.
 
 ## Live demo
 
@@ -32,6 +33,12 @@ Run the demo:
 make run
 ```
 
+Enter a name when prompted. For example, entering `Ammy` displays:
+
+```text
+Ammy, welcome to the Data Engineering course.
+```
+
 Run the tests:
 
 ```bash
@@ -40,6 +47,10 @@ make test
 
 The test suite also runs automatically through GitHub Actions on pushes and
 pull requests.
+
+The required lab work is to replicate the provided function and test example.
+Students may optionally change the message, improve the input handling, or
+add tests and related functions for 1-3 bonus points.
 
 ## Demonstrate GitHub Actions
 

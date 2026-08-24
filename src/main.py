@@ -1,6 +1,7 @@
-def addition(a, b):
-    return a + b
+def welcome_message(name):
+    return f"{name}, welcome to the Data Engineering course."
 
 
 if __name__ == "__main__":
-    print(addition(2, 3))
+    name = input("Enter your name: ")
+    print(welcome_message(name))

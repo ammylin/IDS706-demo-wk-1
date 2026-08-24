@@ -1351,7 +1351,7 @@ jobs:
 
 
                 <!-- =================================================
-                     STEP 7 — HOMEWORK / EXAMPLE
+                     STEP 7 — EXAMPLE / OPTIONAL EXPLORATION
                      ================================================= -->
 
                 <article class="lesson" data-step="7">
@@ -1361,8 +1361,8 @@ jobs:
                         <span class="step-number">07</span>
 
                         <div>
-                            <p class="eyebrow">Your homework</p>
-                            <h2>Create your own function and test</h2>
+                            <p class="eyebrow">Follow the example</p>
+                            <h2>Run the welcome-message example</h2>
                         </div>
 
                     </div>
@@ -1370,23 +1370,21 @@ jobs:
 
                     <div class="callout yellow">
 
-                        <span>Homework</span>
+                        <span>Required work</span>
 
                         <p>
-                            For this assignment, you will create your own
-                            small Python function and write a test for it.
-                            The example below is provided to show you the
-                            expected structure — <strong>do not simply
-                                copy the example as your submission.</strong>
+                            Replicate the working example below. Completing
+                            the process as shown is enough to receive full
+                            credit. You do not need to create a different
+                            function or test case.
                         </p>
 
                     </div>
 
 
                     <p class="lead">
-                        Create a source file containing a function and a
-                        separate test file that checks whether your
-                        function works correctly.
+                        Create the source file and test file shown below,
+                        then run the program and confirm that the test passes.
                     </p>
 
 
@@ -1415,10 +1413,8 @@ jobs:
                             <div>
 
                                 <p>
-                                    <strong>Example only:</strong>
-                                    here is one possible function.
-                                    You should create your own function
-                                    for the homework.
+                                    Copy this example into
+                                    <code>src/main.py</code>.
                                 </p>
 
                                 <div class="code-card">
@@ -1428,14 +1424,21 @@ jobs:
                                         <span>Example: src/main.py</span>
 
                                         <button class="copy-button" type="button"
-                                            data-copy="def add(a, b):\n    return a + b">
+                                            data-copy="def welcome_message(name):\n    return f\" {name}, welcome to the
+                                            Data Engineering course.\"\n\n\nif __name__==\"__main__\":\n
+                                            name=input(\"Enter your name: \")\n print(welcome_message(name))">
                                             Copy
                                         </button>
 
                                     </div>
 
-                                    <pre><code>def add(a, b):
-    return a + b</code></pre>
+                                    <pre><code>def welcome_message(name):
+    return f"{name}, welcome to the Data Engineering course."
+
+
+if __name__ == "__main__":
+    name = input("Enter your name: ")
+    print(welcome_message(name))</code></pre>
 
                                 </div>
 
@@ -1467,8 +1470,8 @@ jobs:
                             <div>
 
                                 <p>
-                                    <strong>Example only:</strong>
-                                    write a test for your function.
+                                    Copy this test into
+                                    <code>tests/test_main.py</code>.
                                 </p>
 
                                 <div class="code-card">
@@ -1478,16 +1481,17 @@ jobs:
                                         <span>Example: tests/test_main.py</span>
 
                                         <button class="copy-button" type="button"
-                                            data-copy="from src.main import add\n\ndef test_add():\n    assert add(2, 3) == 5">
+                                            data-copy="from src.main import welcome_message\n\n\ndef test_welcome_message():\n    assert welcome_message(\"
+                                            Ammy\")==\"Ammy, welcome to the Data Engineering course.\"">
                                             Copy
                                         </button>
 
                                     </div>
 
-                                    <pre><code>from src.main import add
+                                    <pre><code>from src.main import welcome_message
 
-def test_add():
-    assert add(2, 3) == 5</code></pre>
+def test_welcome_message():
+    assert welcome_message("Ammy") == "Ammy, welcome to the Data Engineering course."</code></pre>
 
                                 </div>
 
@@ -1505,7 +1509,7 @@ def test_add():
                             <div>
 
                                 <p>
-                                    Run your test.
+                                    Run the test suite.
                                 </p>
 
                                 <div class="code-card">
@@ -1529,6 +1533,19 @@ def test_add():
                         </label>
 
 
+                        <div class="callout blue">
+
+                            <span>Optional bonus exploration</span>
+
+                            <p>
+                                The required work is complete when you replicate the example.
+                                For 1-3 bonus points, experiment with the script: change the
+                                welcome message, improve the input handling, add another test,
+                                or create a related function. Keep your tests passing and
+                                document what you changed.
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -1538,9 +1555,9 @@ def test_add():
                         <span>Expected result</span>
 
                         <p>
-                            Your test should pass. A passing test is a
-                            small but meaningful signal that your project
-                            is behaving as expected.
+                            Your program should ask for a name and print a welcome message.
+                            The provided test should pass. Optional changes are encouraged,
+                            but they are not required for full credit.
                         </p>
 
                     </div>
@@ -1621,7 +1638,7 @@ def test_add():
 
                                     <pre><code># My Python Project
 
-This project contains a small function that adds two numbers.
+This project asks for a name and prints a welcome message for the Data Engineering course.
 
 ## Setup
 python -m venv .venv
@@ -1632,10 +1649,9 @@ pip install -r requirements.txt
 python -m pytest
 
 ## Example
-from src.main import add
+Enter your name when prompted:
 
-result = add(2, 3)
-print(result)  # 5</code></pre>
+Ammy, welcome to the Data Engineering course.</code></pre>
 
                                 </div>
 
@@ -2065,7 +2081,7 @@ print(result)  # 5</code></pre>
 
                         <div>
                             ✓ <span>requirements.txt</span>
-                        </div>
+                            http://localhost:8000 </div>
 
                         <div>
                             ✓ <span>Source code</span>
