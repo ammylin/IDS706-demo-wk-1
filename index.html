@@ -807,6 +807,20 @@ source .venv/bin/activate</code></pre>
 
                                 </div>
 
+                                <div class="callout yellow">
+
+                                    <span>If Windows blocks the activate command</span>
+
+                                    <p>
+                                        If PowerShell replies that running scripts is disabled on this
+                                        system, run
+                                        <code>Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code>
+                                        once, answer <code>Y</code>, then run the activate command again.
+                                        Your prompt should then begin with <code>(.venv)</code>.
+                                    </p>
+
+                                </div>
+
                             </div>
 
                         </label>
@@ -1141,11 +1155,155 @@ clean:
                         </label>
 
 
+                    </div>
+
+
+                    <div class="platform-tabs" role="tablist" aria-label="Operating system">
+
+                        <button class="platform-tab is-selected" type="button" role="tab" aria-selected="true"
+                            data-platform="mac">
+                            Mac / Linux
+                        </button>
+
+                        <button class="platform-tab" type="button" role="tab" aria-selected="false"
+                            data-platform="windows">
+                            Windows
+                        </button>
+
+                    </div>
+
+
+                    <div class="platform-panel is-selected" data-platform-panel="mac">
+
                         <label class="instruction-item">
 
                             <input type="checkbox">
 
                             <span class="list-number">03</span>
+
+                            <div>
+
+                                <p>
+                                    Check that <code>make</code> is available. It
+                                    comes with macOS and Linux.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+
+                                        <span>Mac / Linux</span>
+
+                                        <button class="copy-button" type="button" data-copy="make --version">
+                                            Copy
+                                        </button>
+
+                                    </div>
+
+                                    <pre><code>make --version</code></pre>
+
+                                </div>
+
+                                <div class="callout yellow">
+
+                                    <span>If Mac says command not found</span>
+
+                                    <p>
+                                        Run <code>xcode-select --install</code> once to add
+                                        the Apple developer tools, then try again.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="platform-panel" data-platform-panel="windows">
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">03</span>
+
+                            <div>
+
+                                <p>
+                                    Install <code>make</code>. Windows does not include
+                                    it, so install it once (no administrator rights needed).
+                                    Answer <code>Y</code> if asked to accept terms.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+
+                                        <span>Windows</span>
+
+                                        <button class="copy-button" type="button" data-copy="winget install ezwinports.make">
+                                            Copy
+                                        </button>
+
+                                    </div>
+
+                                    <pre><code>winget install ezwinports.make</code></pre>
+
+                                </div>
+
+                                <p>
+                                    <strong>Close the terminal and open a new one</strong>,
+                                    then confirm Windows can find <code>make</code>. You
+                                    should see <code>GNU Make</code>.
+                                </p>
+
+                                <div class="code-card">
+
+                                    <div class="code-card-top">
+
+                                        <span>Windows</span>
+
+                                        <button class="copy-button" type="button" data-copy="make --version">
+                                            Copy
+                                        </button>
+
+                                    </div>
+
+                                    <pre><code>make --version</code></pre>
+
+                                </div>
+
+                                <div class="callout yellow">
+
+                                    <span>If Windows says make is not recognized</span>
+
+                                    <p>
+                                        You are probably still in the old terminal. Close
+                                        it, open a new one, activate the virtual environment
+                                        again, and retry. After this one-time setup, every
+                                        <code>make</code> command in this lab works the same
+                                        on Windows as on Mac.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="instruction-list">
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">04</span>
 
                             <div>
 
@@ -1178,7 +1336,7 @@ clean:
 
                             <input type="checkbox">
 
-                            <span class="list-number">04</span>
+                            <span class="list-number">05</span>
 
                             <div>
 
@@ -1276,6 +1434,12 @@ clean:
                                     Install and start <a href="https://www.docker.com/products/docker-desktop/">Docker
                                         Desktop</a>, then
                                     confirm Docker is running.
+                                </p>
+
+                                <p>
+                                    On Windows, the Docker Desktop installer turns on WSL 2
+                                    for you. Restart the computer if it asks, then open
+                                    Docker Desktop again.
                                 </p>
 
                                 <div class="code-card">
@@ -1906,7 +2070,8 @@ This project asks for a name and prints a welcome message for the Data Engineeri
 
 ## Setup
 python -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate      # Mac / Linux
+.venv\Scripts\activate          # Windows
 pip install -r requirements.txt
 
 ## Run tests
