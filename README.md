@@ -19,11 +19,57 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
+### Windows setup
+
+The commands above are for macOS and Linux. On Windows, follow these steps
+instead. Do them once, in order, and every later command in this README will
+work the same as on a Mac.
+
+1. Open **PowerShell**: press the Windows key, type `PowerShell`, and press
+   Enter.
+2. Install `make` (it comes with macOS and Linux but not with Windows). Paste
+   this line and press Enter:
+
+   ```powershell
+   winget install ezwinports.make
+   ```
+
+   If asked to agree to terms, type `Y` and press Enter.
+3. **Close PowerShell and open it again.** This step is required so Windows
+   can find the new `make` command. Check it worked:
+
+   ```powershell
+   make --version
+   ```
+
+   You should see `GNU Make`.
+4. Allow PowerShell to activate virtual environments (a one-time setting):
+
+   ```powershell
+   Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+   ```
+
+   Type `Y` and press Enter if asked.
+5. Move into the project folder with `cd`, then create and activate the
+   virtual environment. Note that Windows uses `python` (not `python3`) and a
+   `Scripts` folder (not `bin`):
+
+   ```powershell
+   python -m venv .venv
+   .venv\Scripts\activate
+   ```
+
+   Your prompt should now start with `(.venv)`. You are ready to continue
+   with `make install` below.
+
 Install the project dependencies:
 
 ```bash
 make install
 ```
+
+Windows users: if `make` is not recognized, go back to the **Windows setup**
+steps above.
 
 ## Run
 
@@ -103,6 +149,8 @@ launch it locally by serving the repository and opening the page in your browser
 ```bash
 python3 -m http.server 8000
 ```
+
+On Windows use `python -m http.server 8000`.
 
 Then visit:
 
