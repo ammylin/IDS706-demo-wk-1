@@ -3,13 +3,19 @@ const STORAGE_KEY = "python-template-lab-progress";
 const PLATFORM_KEY = "python-template-lab-platform";
 
 const state = loadProgress();
-const lessons = [...document.querySelectorAll(".lesson")];
+const lessonArea = document.querySelector(".lesson-area");
+const lessonControls = document.querySelector(".lesson-controls");
+const lessons = [...document.querySelectorAll(".lesson")].sort((firstLesson, secondLesson) => {
+    return Number(firstLesson.dataset.step) - Number(secondLesson.dataset.step);
+});
 const navItems = [...document.querySelectorAll("#step-nav-list li")];
 const stepDots = document.querySelector("#step-dots");
 const backButton = document.querySelector("#back-button");
 const nextButton = document.querySelector("#next-button");
 const toast = document.querySelector("#toast");
 let toastTimer;
+
+lessons.forEach((lesson) => lessonArea.insertBefore(lesson, lessonControls));
 
 // Restore a student's place so a refresh never wipes out their lab progress.
 function loadProgress() {

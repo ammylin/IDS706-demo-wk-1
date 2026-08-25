@@ -91,6 +91,13 @@ Run the tests:
 make test
 ```
 
+You can also run the application and clean local Python cache files with:
+
+```bash
+make run
+make clean
+```
+
 The test suite also runs automatically through GitHub Actions on pushes and
 pull requests.
 
@@ -127,6 +134,10 @@ The required lab work is to replicate the provided Python, test, Dockerfile,
 and Docker commands. Students may optionally change the message, improve the
 input handling, add tests or related functions, or improve the container setup
 for 1-3 bonus points.
+
+For extra credit, add `make format` and `make lint` commands to the Makefile
+and run them locally and in GitHub Actions. `make format` is worth 1 point,
+and `make lint` is worth 1 separate point.
 
 ## Demonstrate GitHub Actions
 
