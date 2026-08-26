@@ -1,4 +1,4 @@
-.PHONY: install test run docker-build docker-run docker-test clean
+.PHONY: install test run docker-build docker-test docker-run clean
 
 IMAGE_NAME := data-engineering-demo
 
@@ -18,13 +18,13 @@ run:
 docker-build:
 	docker build -t $(IMAGE_NAME) .
 
-# Run the application inside Docker
-docker-run:
-	docker run -it --rm $(IMAGE_NAME)
-
 # Run the test suite inside Docker
 docker-test:
 	docker run --rm $(IMAGE_NAME) python -m pytest -q
+
+# Run the application inside Docker
+docker-run:
+	docker run -it --rm $(IMAGE_NAME)
 
 # Clean generated files
 clean:

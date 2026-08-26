@@ -71,9 +71,15 @@ make install
 Windows users: if `make` is not recognized, go back to the **Windows setup**
 steps above.
 
-## Run
+## Verify and run
 
-Run the demo:
+Run the tests before launching the interactive demo:
+
+```bash
+make test
+```
+
+After the tests pass, run the demo:
 
 ```bash
 make run
@@ -85,16 +91,9 @@ Enter a name when prompted. For example, entering `Ammy` displays:
 Ammy, welcome to the Data Engineering course.
 ```
 
-Run the tests:
+Clean local Python cache files when finished:
 
 ```bash
-make test
-```
-
-You can also run the application and clean local Python cache files with:
-
-```bash
-make run
 make clean
 ```
 
@@ -108,22 +107,18 @@ command into a portable image. This helps the project behave consistently on
 different computers and gives GitHub Actions the same kind of environment to
 test.
 
-Make sure Docker Desktop is installed and running, then build the image:
+Make sure Docker Desktop is installed and running, then build the image and
+run the container tests:
 
 ```bash
 make docker-build
+make docker-test
 ```
 
-Run the interactive program in the container:
+After the container tests pass, run the interactive program:
 
 ```bash
 make docker-run
-```
-
-Run the tests inside the container:
-
-```bash
-make docker-test
 ```
 
 The `Dockerfile` defines the image recipe, while `.dockerignore` keeps local

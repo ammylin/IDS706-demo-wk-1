@@ -227,10 +227,6 @@
 
 <body>
 
-    <!-- =========================================================
-         HEADER
-         ========================================================= -->
-
     <header class="site-header">
         <div class="header-inner">
 
@@ -248,10 +244,6 @@
 
 
     <main id="top" class="app-shell">
-
-        <!-- =====================================================
-             HERO
-             ===================================================== -->
 
         <section class="hero" aria-labelledby="page-title">
 
@@ -346,7 +338,7 @@
                     <li>
                         <button type="button" data-go-to="5">
                             <span>05</span>
-                            Makefile
+                            Run the example
                             <b>✓</b>
                         </button>
                     </li>
@@ -354,7 +346,7 @@
                     <li>
                         <button type="button" data-go-to="6">
                             <span>06</span>
-                            Docker
+                            Makefile
                             <b>✓</b>
                         </button>
                     </li>
@@ -362,7 +354,7 @@
                     <li>
                         <button type="button" data-go-to="7">
                             <span>07</span>
-                            Run the example
+                            Docker
                             <b>✓</b>
                         </button>
                     </li>
@@ -412,16 +404,7 @@
             </aside>
 
 
-            <!-- =================================================
-                 LESSON AREA
-                 ================================================= -->
-
             <section class="lesson-area" aria-live="polite">
-
-
-                <!-- =================================================
-                     STEP 1 — CREATE REPOSITORY
-                     ================================================= -->
 
                 <article class="lesson is-active" data-step="1">
 
@@ -513,7 +496,7 @@
 
                             <input type="checkbox">
 
-                            <span class="list-number">05</span>
+                            <span class="list-number">06</span>
 
                             <p>
                                 Click
@@ -812,10 +795,12 @@ source .venv/bin/activate</code></pre>
                                     <span>If Windows blocks the activate command</span>
 
                                     <p>
-                                        If PowerShell replies that running scripts is disabled on this
+                                        If PowerShell replies that running scripts is disabled on
+                                        this
                                         system, run
                                         <code>Set-ExecutionPolicy -Scope CurrentUser RemoteSigned</code>
-                                        once, answer <code>Y</code>, then run the activate command again.
+                                        once, answer <code>Y</code>, then run the activate command
+                                        again.
                                         Your prompt should then begin with <code>(.venv)</code>.
                                     </p>
 
@@ -1048,14 +1033,14 @@ source .venv/bin/activate</code></pre>
 
 
                 <!-- =================================================
-                     STEP 5 — MAKEFILE
+                     STEP 6 — MAKEFILE
                      ================================================= -->
 
-                <article class="lesson" data-step="5">
+                <article class="lesson" data-step="6">
 
                     <div class="lesson-heading">
 
-                        <span class="step-number">05</span>
+                        <span class="step-number">06</span>
 
                         <div>
                             <p class="eyebrow">Standardize the routine</p>
@@ -1109,7 +1094,7 @@ source .venv/bin/activate</code></pre>
                                         <span>Makefile</span>
 
                                         <button class="copy-button" type="button"
-                                            data-copy=".PHONY: install test run docker-build docker-run docker-test clean\n\nIMAGE_NAME := data-engineering-demo\n\n# Install dependencies\ninstall:\n\tpython -m pip install -r requirements.txt\n\n# Run tests\ntest:\n\tpython -m pytest -q\n\n# Run the application\nrun:\n\tpython src/main.py\n\n# Build the Docker image\ndocker-build:\n\tdocker build -t $(IMAGE_NAME) .\n\n# Run the application inside Docker\ndocker-run:\n\tdocker run -it --rm $(IMAGE_NAME)\n\n# Run the test suite inside Docker\ndocker-test:\n\tdocker run --rm $(IMAGE_NAME) python -m pytest -q\n\n# Clean generated files\nclean:\n\trm -rf __pycache__\n\trm -rf .pytest_cache">
+                                            data-copy=".PHONY: install test run docker-build docker-test docker-run clean\n\nIMAGE_NAME := data-engineering-demo\n\n# Install dependencies\ninstall:\n\tpython -m pip install -r requirements.txt\n\n# Run tests\ntest:\n\tpython -m pytest -q\n\n# Run the application\nrun:\n\tpython src/main.py\n\n# Build the Docker image\ndocker-build:\n\tdocker build -t $(IMAGE_NAME) .\n\n# Run the test suite inside Docker\ndocker-test:\n\tdocker run --rm $(IMAGE_NAME) python -m pytest -q\n\n# Run the application inside Docker\ndocker-run:\n\tdocker run -it --rm $(IMAGE_NAME)\n\n# Clean generated files\nclean:\n\trm -rf __pycache__\n\trm -rf .pytest_cache">
                                             Copy
                                         </button>
 
@@ -1133,15 +1118,15 @@ run:
 
 # Build the Docker image
 docker-build:
-    docker build -t $(IMAGE_NAME) .
-
-# Run the application inside Docker
-docker-run:
-    docker run -it --rm $(IMAGE_NAME)
+	docker build -t $(IMAGE_NAME) .
 
 # Run the test suite inside Docker
 docker-test:
-    docker run --rm $(IMAGE_NAME) python -m pytest -q
+	docker run --rm $(IMAGE_NAME) python -m pytest -q
+
+# Run the application inside Docker
+docker-run:
+	docker run -it --rm $(IMAGE_NAME)
 
 # Clean generated files
 clean:
@@ -1337,7 +1322,7 @@ clean:
 
                             <input type="checkbox">
 
-                            <span class="list-number">04</span>
+                            <span class="list-number">05</span>
 
                             <div>
 
@@ -1374,7 +1359,7 @@ clean:
 
                             <input type="checkbox">
 
-                            <span class="list-number">05</span>
+                            <span class="list-number">06</span>
 
                             <div>
 
@@ -1458,14 +1443,14 @@ clean:
 
 
                 <!-- =================================================
-                     STEP 6 — DOCKER
+                     STEP 7 — DOCKER
                      ================================================= -->
 
-                <article class="lesson" data-step="6">
+                <article class="lesson" data-step="7">
 
                     <div class="lesson-heading">
 
-                        <span class="step-number">06</span>
+                        <span class="step-number">07</span>
 
                         <div>
                             <p class="eyebrow">Package the environment</p>
@@ -1637,8 +1622,7 @@ __pycache__
                             <div>
 
                                 <p>
-                                    Run the welcome program inside the container and enter
-                                    your name when prompted.
+                                    Run the tests inside the container.
                                 </p>
 
                                 <div class="code-card">
@@ -1647,7 +1631,7 @@ __pycache__
                                         <span>Terminal</span>
                                     </div>
 
-                                    <pre><code>make docker-run</code></pre>
+                                    <pre><code>make docker-test</code></pre>
 
                                 </div>
 
@@ -1665,7 +1649,8 @@ __pycache__
                             <div>
 
                                 <p>
-                                    Run the tests inside the container.
+                                    Run the welcome program inside the container and enter
+                                    your name when prompted.
                                 </p>
 
                                 <div class="code-card">
@@ -1674,7 +1659,7 @@ __pycache__
                                         <span>Terminal</span>
                                     </div>
 
-                                    <pre><code>make docker-test</code></pre>
+                                    <pre><code>make docker-run</code></pre>
 
                                 </div>
 
@@ -1732,8 +1717,8 @@ __pycache__
                             <span class="list-number">01</span>
 
                             <p>
-                                Create the folder
-                                <code>.github/workflows/</code>.
+                                Create a folder named
+                                <code>.github</code> in the project root.
                             </p>
 
                         </label>
@@ -1746,8 +1731,8 @@ __pycache__
                             <span class="list-number">02</span>
 
                             <p>
-                                Create
-                                <code>.github/workflows/test.yml</code>.
+                                Inside <code>.github</code>, create a subfolder named
+                                <code>workflows</code>.
                             </p>
 
                         </label>
@@ -1762,8 +1747,27 @@ __pycache__
                             <div>
 
                                 <p>
-                                    Paste the workflow below into
+                                    Inside <code>.github/workflows</code>, create a file named
                                     <code>test.yml</code>.
+
+                                </p>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="instruction-item">
+
+                            <input type="checkbox">
+
+                            <span class="list-number">04</span>
+
+                            <div>
+
+                                <p>
+                                    Paste the workflow below into
+                                    <code>.github/workflows/test.yml</code>.
                                 </p>
 
                                 <div class="code-card yaml-card">
@@ -1782,27 +1786,27 @@ __pycache__
                                     <pre><code>name: Python tests
 
 on:
-  push:
-  pull_request:
+    push:
+    pull_request:
     workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+    test:
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Check out repository
-        uses: actions/checkout@v4
+        steps:
+            - name: Check out repository
+                uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+            - name: Set up Python
+                uses: actions/setup-python@v5
+                with:
+                    python-version: "3.12"
 
-      - name: Install dependencies
+            - name: Install dependencies
                 run: make install
 
-      - name: Run tests
+            - name: Run tests
                 run: make test
 
             - name: Build Docker image
@@ -1816,6 +1820,18 @@ jobs:
                             </div>
 
                         </label>
+
+                    </div>
+
+
+                    <div class="callout yellow">
+
+                        <span>Keep the spacing</span>
+
+                        <p>
+                            YAML uses indentation to define its structure. Keep the spaces
+                            exactly as shown when you paste this workflow.
+                        </p>
 
                     </div>
 
@@ -1853,14 +1869,14 @@ jobs:
 
 
                 <!-- =================================================
-                     STEP 7 — EXAMPLE / OPTIONAL EXPLORATION
+                     STEP 5 — EXAMPLE / OPTIONAL EXPLORATION
                      ================================================= -->
 
-                <article class="lesson" data-step="7">
+                <article class="lesson" data-step="5">
 
                     <div class="lesson-heading">
 
-                        <span class="step-number">07</span>
+                        <span class="step-number">05</span>
 
                         <div>
                             <p class="eyebrow">Follow the example</p>
@@ -2155,6 +2171,30 @@ python -m pytest
 Enter your name when prompted:
 
 Ammy, welcome to the Data Engineering course.</code></pre>
+
+                                </div>
+
+                                <div class="callout yellow">
+
+                                    <span>Commit the README changes</span>
+
+                                    <p>
+                                        After creating your README, commit and push it again.
+                                        Use a new, descriptive commit message instead of reusing
+                                        the earlier message.
+                                    </p>
+
+                                    <div class="code-card">
+
+                                        <div class="code-card-top">
+                                            <span>Terminal</span>
+                                        </div>
+
+                                        <pre><code>git add README.md
+                    git commit -m "Add project documentation"
+                    git push</code></pre>
+
+                                    </div>
 
                                 </div>
 
@@ -2534,7 +2574,8 @@ Ammy, welcome to the Data Engineering course.</code></pre>
                             <div>
 
                                 <p>
-                                    Select the workflow run you want to show, then select the three dots at the top
+                                    Select the workflow run you want to show, then select the three
+                                    dots at the top
                                     right of the page.
                                 </p>
 
@@ -2552,7 +2593,8 @@ Ammy, welcome to the Data Engineering course.</code></pre>
                             <div>
 
                                 <p>
-                                    Click the <strong>Create status badge</strong> button from the dropdown menu.
+                                    Click the <strong>Create status badge</strong> button from the
+                                    dropdown menu.
                                 </p>
 
                                 <div class="callout blue">
