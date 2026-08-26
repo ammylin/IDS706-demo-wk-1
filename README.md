@@ -19,6 +19,9 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
+If your computer uses `python` instead of `python3`, run `python -m venv .venv`
+and then activate the environment with the same command shown above.
+
 ### Windows setup
 
 The commands above are for macOS and Linux. On Windows, follow these steps
