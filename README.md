@@ -101,7 +101,7 @@ make clean
 The test suite also runs automatically through GitHub Actions on pushes and
 pull requests.
 
-## Run with Docker
+## Run with Docker 
 
 Docker packages the Python version, dependencies, source code, and startup
 command into a portable image. This helps the project behave consistently on
