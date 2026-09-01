@@ -1,9 +1,9 @@
 [![Python tests](https://github.com/ammylin/IDS706-demo-wk-1/actions/workflows/test.yml/badge.svg)](https://github.com/ammylin/IDS706-demo-wk-1/actions/workflows/test.yml)
 
-# Software Engineering Basics Demo
+# Software Engineering Basics TA Demo
 
 A small Python project for practicing virtual environments, dependencies,
-Makefiles, tests, Docker, and GitHub Actions. The demo asks for a user's name
+Makefiles, tests, Docker, and GitHub Actions, created to be presented for my role as a Teaching Assistant for IDS 706: Data Engineering Systems. The demo asks for a user's name
 and prints a welcome message for the Data Engineering course.
 
 ## Live demo
